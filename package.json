@@ -2,7 +2,7 @@
   "name": "corporate-velzon-thunk",
   "version": "1.0.0",
   "private": true,
-   "proxy":"https://crm-backend-swart.vercel.app/",
+   "proxy":"https://crm-backend-bsjmduyw4-karishan-mehmoods-projects.vercel.app/",
   "dependencies": {
     "@ckeditor/ckeditor5-build-classic": "^38.0.1",
     "@ckeditor/ckeditor5-react": "^6.1.0",
