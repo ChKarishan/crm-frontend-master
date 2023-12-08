@@ -1,5 +1,5 @@
 module.exports = {
   api: {
-    API_URL: "https://crm-backend-bsjmduyw4-karishan-mehmoods-projects.vercel.app/",
+    API_URL: "https://crm-backend-karishan-mehmoods-projects.vercel.app/",
   }
 };
