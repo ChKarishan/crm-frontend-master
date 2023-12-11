@@ -69,8 +69,8 @@ const CrmCompanies = () => {
   
                   <Card >
                       <CardHeader className="align-items-center d-flex bg-secondary">
-                          <h4 className="card-title mb-0 flex-grow-1">All Contacts</h4>
-                          <div className="flex-shrink-0">
+                          <h4 className="card-title mb-0 flex-grow-1 text-white">All Contacts</h4>
+                          {/* <div className="flex-shrink-0">
                               <UncontrolledDropdown className="card-header-dropdown">
                                   <DropdownToggle tag="a" className="text-reset dropdown-btn" role="button">
                                       <span className="text-muted">02 Nov 2021 to 31 Dec 2021<i className="mdi mdi-chevron-down ms-1"></i></span>
@@ -82,7 +82,7 @@ const CrmCompanies = () => {
                                       <DropdownItem>Current Year</DropdownItem>
                                   </DropdownMenu>
                               </UncontrolledDropdown>
-                          </div>
+                          </div> */}
                       </CardHeader>
   
                       <CardBody>
@@ -127,12 +127,12 @@ const CrmCompanies = () => {
                       </CardBody>
                   </Card>
     
-                  <button
+                  {/* <button
           type="submit"
           className="w-full bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-md focus:outline-none"
         >
           Submit
-        </button>
+        </button> */}
               
   
               </Col>
