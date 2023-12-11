@@ -68,7 +68,7 @@ const CrmCompanies = () => {
               <Col xs={12}>
   
                   <Card >
-                      <CardHeader className="align-items-center d-flex">
+                      <CardHeader className="align-items-center d-flex bg-secondary">
                           <h4 className="card-title mb-0 flex-grow-1">All Contacts</h4>
                           <div className="flex-shrink-0">
                               <UncontrolledDropdown className="card-header-dropdown">
