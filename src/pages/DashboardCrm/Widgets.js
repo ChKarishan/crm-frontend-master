@@ -17,8 +17,8 @@ const Widgets = () => {
     useEffect(() => {
         // Example of using the getUser function from the API file
 
-        API.getdailyIncome().then((response) => {
-            getDailyAverageSale(response.data);
+        API.getDailyAverageSale().then((response) => {
+            getdailyIncome(response.data);
         })
         .catch((error) => {
         });
