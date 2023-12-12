@@ -42,13 +42,13 @@ const CrmLeads = () => {
     <React.Fragment>
   <div className="page-content">
         <Container fluid>
-          <BreadCrumb title="All Deals" pageTitle="Pages" />
+          {/* <BreadCrumb title="All Deals" pageTitle="Pages" /> */}
           <Row>
             <Col xs={12}>
 
                 <Card >
-                    <CardHeader className="align-items-center d-flex">
-                        <h4 className="card-title mb-0 flex-grow-1">All Deals</h4>
+                    <CardHeader className="align-items-center d-flex bg-secondary">
+                        <h4 className="card-title mb-0 flex-grow-1 text-white">All Deals</h4>
                         <div className="flex-shrink-0">
                             {/* <UncontrolledDropdown className="card-header-dropdown">
                                 <DropdownToggle tag="a" className="text-reset dropdown-btn" role="button">
