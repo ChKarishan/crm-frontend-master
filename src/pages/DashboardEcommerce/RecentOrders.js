@@ -51,10 +51,7 @@ const RecentOrders = () => {
                                         {/* <th scope="col">Date</th> */}
                                         <th scope="col">Heading</th>
                                         <th scope="col">Discription</th>
-                                        {/* <th scope="col">Amount</th>
-                                        <th scope="col">Vendor</th>
-                                        <th scope="col">Status</th>
-                                        <th scope="col">Rating</th> */}
+                                       
                                     </tr>
                                 </thead>
                                 <tbody>

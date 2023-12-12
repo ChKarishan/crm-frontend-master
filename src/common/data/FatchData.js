@@ -1,6 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
+ const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
+
+
 // Your API base URL
 
 const api_authth = axios.create({
@@ -196,7 +198,7 @@ const API = {
 
       // Get Sales
   getSales: (userId) => {
-    return api.get(`/getSales`);
+    return api.get(`/sales/getSales`);
   },
 
     // annual Sales

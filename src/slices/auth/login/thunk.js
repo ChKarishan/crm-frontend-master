@@ -34,10 +34,11 @@ export const loginUser = (user, history) => async (dispatch) => {
         };
 
 
-        }).catch((error)=>{});
-
+        }).catch((error)=>{
+        });
 
      
+        
 
 
        
