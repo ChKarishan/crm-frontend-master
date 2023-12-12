@@ -15,6 +15,8 @@ import {
   Table,
 } from "reactstrap";
 import { useNavigate } from "react-router-dom";
+import CountUp from "react-countup";
+
 import API from "../../../common/data/FatchData";
 //Import Breadcrumb
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
