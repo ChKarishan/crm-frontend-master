@@ -211,7 +211,7 @@ const API = {
 
     // daily Average Sale
     getDailyAverageSale: (userId) => {
-      return api.get(`/dailyAverageSale`);
+      return api.get(`/sales/dailyAverageSale`);
     },
 
 
