@@ -104,8 +104,8 @@ const Widgets = () => {
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={'$'}
-                                                        suffix={'%'}
+                                                        // prefix={'$'}
+                                                        // suffix={'%'}
                                                         // separator={}
                                                         end={mostReferral}
                                                         decimals={2}
