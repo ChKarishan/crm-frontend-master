@@ -6,6 +6,7 @@ import {
   Progress,
   Row,
   Card,
+  Col,
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
