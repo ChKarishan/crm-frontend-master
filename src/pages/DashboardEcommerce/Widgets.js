@@ -177,8 +177,8 @@ const Widgets = () => {
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={'$'}
-                                                        suffix={'%'}
+                                                        prefix={''}
+                                                        suffix={'MW'}
                                                         // separator={}
                                                         end={mostMegawattsSold}
                                                         decimals={2}
@@ -219,8 +219,8 @@ const Widgets = () => {
                                     <h4 className="fs-20 fw-semibold ff-secondary mb-4"><span className="counter-value" data-target="1229.25">
                                         <CountUp
                                             start={0}
-                                            prefix="$"
-                                            suffix="k"
+                                            // prefix=""
+                                            // suffix=""
                                             end={mostPannelsSold}
                                             decimals={2}
                                             duration={4}
