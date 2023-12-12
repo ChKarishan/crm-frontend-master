@@ -104,7 +104,7 @@ const Widgets = () => {
 
                                 <div className="col">
                                     <div className="py-4 px-3">
-                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Daily Average Income
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Daily Average Sale
                                         {/* <i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i> */}
                                         </h5>
                                         <div className="d-flex align-items-center">
