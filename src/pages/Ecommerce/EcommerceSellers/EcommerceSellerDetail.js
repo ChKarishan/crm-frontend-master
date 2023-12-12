@@ -265,7 +265,7 @@ document.title =" Sales ";
                                              <FeatherIcon icon={"ri-arrow-down-s-line"} className={`text-secoundry`} />
                                           
                                         </span> */}
-                                        <img src={avatar10} alt="" className="avatar-xs object-fit-cover rounded-circle" />
+                                        {/* <img src={avatar10} alt="" className="avatar-xs object-fit-cover rounded-circle" /> */}
                                     </div>
                                    
                                     <div className="flex-grow-1 overflow-hidden ms-3">
