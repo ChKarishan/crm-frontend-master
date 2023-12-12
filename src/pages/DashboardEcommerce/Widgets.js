@@ -21,6 +21,11 @@ const Widgets = () => {
         // Example of using the getUser function from the API file
        
 
+        API.getMostReferral().then((response) => {
+            setMostReferral(response.data);
+        }).catch((error) => {
+        });
+
 
         // Api call for Largest Sales
         API.getLargestSale().then((response) => {

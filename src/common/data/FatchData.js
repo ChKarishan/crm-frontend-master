@@ -172,6 +172,10 @@ const API = {
     return api.get(`/genealogy`);
   },
 
+  getMostReferral: () =>{
+    return api.get('/profile/mostReferral');
+  },
+
 
 
 
