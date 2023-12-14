@@ -16,7 +16,7 @@ import DashboardCharts from "../../DashboardJob/DashboardCharts";
 
 import classnames from "classnames";
 import { Link } from "react-router-dom";
-
+import { useNavigate } from "react-router-dom";
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import { productDetails } from "../../../common/data/ecommerce";
 import EcommerceOrderProduct from "./EcommerceOrderProduct";
@@ -25,10 +25,16 @@ import avatar3 from "../../../assets/images/users/avatar-3.jpg";
 const EcommerceOrderDetail = (props) => {
 
   const location = useLocation()
+  let navigate = useNavigate(); 
   const { from } = location.state
   console.log(`state is ${from.date}`)
 
-
+  const handleClick = () => {
+    console.log("Button clinck");
+    // Use the history object to navigate to the other page
+    let path = `/apps-ecommerce-products`; 
+    navigate(path);
+  };
 
   document.title = "Deal Details";
   return (
@@ -49,10 +55,10 @@ const EcommerceOrderDetail = (props) => {
                   
                         <h4 className="card-title mb-0 flex-grow-1 text-white">Deals Details</h4>
                         <div className="flex-shrink-0">
-                            <button type="button"  className="btn btn-soft-secondary btn-sm">
+                            <button type="button" onClick={handleClick} className="btn btn-soft-secondary btn-sm">
 
                             Add Installers
-                                {/* <i className="ri-file-list-3-line align-middle"></i> Add New */}
+                                
                             </button>
                         </div>
                     </CardHeader>

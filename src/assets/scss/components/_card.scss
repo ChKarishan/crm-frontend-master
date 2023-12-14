@@ -17,7 +17,19 @@
         padding: $card-cap-padding-y 0;
     }
 }
+.half-line-ellipsis {
+  
+// margin: 5px 0;
 
+width: 550px;
+overflow:hidden;
+text-overflow:ellipsis;
+white-space: nowrap;
+
+  }
+
+
+  
 .card-footer {
     border-top: 1px solid var(--#{$prefix}border-color);
 }

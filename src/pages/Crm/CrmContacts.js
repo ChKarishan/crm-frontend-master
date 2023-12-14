@@ -27,9 +27,9 @@ import BreadCrumb from "../../Components/Common/BreadCrumb";
 import 'react-toastify/dist/ReactToastify.css';
 import API from "../../common/data/FatchData";
 
-
+import { useNavigate } from "react-router-dom";
 const CrmContacts = () => {
-  
+  let navigate = useNavigate();
 
   const [formData, setFormData] = useState({
     email: "",
@@ -54,13 +54,22 @@ const CrmContacts = () => {
      
       API.postNewContact(formData).then((response) => {
          setSuccessMessage(response.data.message);
-        console.log(`deal created ${response.data}`);
+         console.log(successMessage);
+        console.log(`contact created ${response.data}`);
         // setMostPannelsSold(response.data.Price);
+        alert('API call successful!');
+        let path = `/dashboard-crm`; 
+    navigate(path);
       })
       .catch((error) => {
+        alert('API call failed! Check console for details.');
       });
-  
 
+     
+
+
+  
+      console.log(successMessage);
 
 
 
@@ -70,13 +79,26 @@ const CrmContacts = () => {
   useEffect(() => {
     if (successMessage) {
       const timeout = setTimeout(() => {
-        setSuccessMessage('Failed to Create Deals');
+
+
+        setSuccessMessage('');
+  setFormData({
+    email: "",
+    firstname: "",
+    lastname: "",
+    phone: "",
+    company: "",
+    WebSite : "",
+    LifeCyclestage: ""
+  });
  
       }, 15000); // Display success message for 3 seconds
       return () => clearTimeout(timeout);
     }
   
   }, [successMessage]);
+
+
 
 
   
@@ -134,6 +156,7 @@ const CrmContacts = () => {
                     id="firstname"
                     name="firstname"
                     value={formData.firstname}
+                    placeholder="Enter First Name"
                     onChange={handleChange}
                         />
                    
@@ -150,9 +173,9 @@ const CrmContacts = () => {
                        type="text"
                       id="lastname"
                       name="lastname"
-                      value={formData.dealname}
+                      value={formData.lastname}
                       onChange={handleChange}
-                      placeholder="Enter Deal Name"
+                      placeholder="Enter Last Name"
                         />
                    
                   </div>

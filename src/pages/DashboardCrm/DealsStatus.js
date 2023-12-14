@@ -87,7 +87,8 @@ const DealsStatus = () => {
                                         
                                         
                                         
-                                        } }} className="fw-medium text-reset"> 
+                                        } }}
+                                         className="fw-medium text-reset"> 
                 <Card >
                    
 

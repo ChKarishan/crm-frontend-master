@@ -2,6 +2,7 @@ import axios from 'axios';
 
  const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
 
+// const BASE_URL ="http://localhost:3002";
 
 // Your API base URL
 
@@ -219,7 +220,7 @@ const API = {
 
     // Create Sales
     postCreateSale: (userId, userData) => {
-      return api.post(`/createSale`, userData);
+      return api.post(`/sales/createSale`, userData);
     },
 
   // daily singel  sale

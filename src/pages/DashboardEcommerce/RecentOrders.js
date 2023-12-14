@@ -5,6 +5,8 @@ import { recentOrders } from '../../common/data';
 import { useEffect, useState } from 'react';
 import API from '../../common/data/FatchData';
 import { useNavigate } from "react-router-dom";
+import SimpleBar from "simplebar-react";
+
 
 
 
@@ -31,9 +33,16 @@ const RecentOrders = () => {
 
     return (
         <React.Fragment>
-            <Col xl={12}>
-                <Card>
-                    <CardHeader className="align-items-center d-flex bg-secondary">
+
+
+<Col xxl={12}>
+                
+                   
+
+
+
+                <Card className="card-height-100">
+                     <CardHeader className="align-items-center d-flex bg-secondary">
                         <h4 className="card-title mb-0 flex-grow-1 text-white">Recent News</h4>
                         <div className="flex-shrink-0">
                             <button type="button" onClick={handleClick} className="btn btn-soft-secondary btn-sm">
@@ -42,39 +51,48 @@ const RecentOrders = () => {
                             </button>
                         </div>
                     </CardHeader>
-
+                    
                     <CardBody>
-                        <div className="table-responsive table-card">
-                            <table className="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                <thead className="text-muted table-light">
+                        <div className="table-responsive">
+                        {/* <SimpleBar style={{ maxHeight: "324px" }}> */}
+                            <table className="table table-bordered table-nowrap align-middle mb-0">
+                                <thead>
                                     <tr>
-                                        {/* <th scope="col">Date</th> */}
-                                        <th scope="col">Heading</th>
-                                        <th scope="col">Discription</th>
+                                        <th scope="col" style={{ width: "30%" }}>Heading</th>
+                                        <th scope="col" style={{ width: "20%" }}>Discription</th>
+                                        <th scope="col" style={{ width: "20%" }}></th>
                                        
                                     </tr>
                                 </thead>
+
                                 <tbody>
-                                    {(allNews || []).map((item, key) => (<tr key={key}>
-                                     
-                                        <td>
-                                            <div className="d-flex align-items-center">
-                                                <div className="flex-shrink-0 me-2">
-                                                    {/* <img src={item.img} alt="" className="avatar-xs rounded-circle" /> */}
-                                                </div>
-                                                <div className="flex-grow-1">{item.heading}</div>
-                                            </div>
-                                        </td>
-                                        <td>{item.discription}</td>
-                                       
-                                       
-                                    </tr>))}
+                                    {(allNews || []).map((item, key) => (
+                                        <tr key={key}>
+                                            <td>{item.heading}</td>
+
+                                            <td > <p className="half-line-ellipsis">{item.discription} </p></td>
+
+                                            <td>
+                                            
+                                                <Link to="/apps-ecommerce-orders" state={{ from: {dealname : item.heading ,  
+                                                          amount:  item.discription
+                                        } }}   className="text-body fw-medium">View details</Link></td>
+                                               
+                                        </tr>
+                                    ))}
                                 </tbody>
                             </table>
+                            {/* </SimpleBar> */}
                         </div>
                     </CardBody>
+                    {/* <p className="half-line-ellipsis"> Hi my name is Shazib. this tst is for tesintg piurejkb to check fbre over flow of the thes kfh. so I am going to test </p> */}
                 </Card>
             </Col>
+
+
+
+
+          
         </React.Fragment>
     );
 };

@@ -8,6 +8,7 @@ import {
   Row,
   Card,
   Col,
+  
   UncontrolledDropdown,
   DropdownToggle,
   DropdownMenu,
@@ -190,7 +191,7 @@ const EcommerceSellerDetail = () => {
   const handleClick = () => {
     console.log("Button clinck");
     // Use the history object to navigate to the other page
-    let path = `/apps-crm-deals`; 
+    let path = `/apps-ecommerce-sellers`; 
     navigate(path);
   };
 
@@ -211,12 +212,11 @@ document.title =" Sales ";
   return (
     <React.Fragment>
 
+<div className="page-content">
  
         
 
 
-              <Col xl={12}>
-                
 
 
               <Col xl={12}>
@@ -243,13 +243,23 @@ document.title =" Sales ";
             {(data || []).map((item, key) => (
             <Col xl={4} key={3}>
 
-            <Link to='/apps-ecommerce-order-details' state={{ from: {
+            <Link to='/apps-ecommerce-add-product' state={{ from: {
+                                        
                                         // dealname : item.properties.dealname ,  
                                         // amount:  item.properties.amount,
                                         // closedate : item.properties.closedate,
                                         // createdate: item.properties.createdate,
                                         // dealstage : item.properties.dealstage,
                                         // pipeline: item.properties.pipeline
+                                        ItemName:  item.ItemName,
+                                        Price: item.Price,
+                                        date: item.Date,
+                                        _id : item._id,
+                                        SaleId : item.SaleId,
+                                        itemID : item.itemID,
+                                        agent : item.agent,
+
+
                                         
                                         
                                         
@@ -310,10 +320,11 @@ document.title =" Sales ";
             ))}
             </Row>
 
+</div>
 
 
           
-            </Col>   
+             
         </React.Fragment>
   );
 };

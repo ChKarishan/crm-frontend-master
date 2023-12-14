@@ -46,22 +46,24 @@ const CrmDeals = () => {
       API.postCreateDeal(formData).then((response) => {
          setSuccessMessage(response.data.message);
         console.log(`deal created ${response.data}`);
+
+        alert('Deals Created successfully!');
+        let path = `/dashboard-crm`; 
+        navigate(path);
         // setMostPannelsSold(response.data.Price);
       })
       .catch((error) => {
+        alert('Error.');
       });
   
-
-
-
-
+      
 
   };
 
   useEffect(() => {
     if (successMessage) {
       const timeout = setTimeout(() => {
-        setSuccessMessage('Failed to Create Deals');
+        setSuccessMessage('Dealseinnggjdsfj nfdsau');
  
       }, 15000); // Display success message for 3 seconds
       return () => clearTimeout(timeout);
