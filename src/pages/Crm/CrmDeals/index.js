@@ -98,13 +98,6 @@ const CrmDeals = () => {
 
 
 
-      {successMessage && (
-          <div className="bg-green-200 text-green-800 p-3 rounded-md mb-4">
-            {successMessage}
-          </div>
-        )} 
-
-
 
       <form onSubmit={handleSubmit}>
         <div className="mb-4">
@@ -252,6 +245,12 @@ const CrmDeals = () => {
                    
                   </div>
                 </CardBody> */}
+
+        {successMessage && (
+              <div className="bg-green-200 text-green-800 p-3 rounded-md mb-4">
+              {successMessage}
+              </div>
+        )} 
 
                 <div className="text-center mb-3">
                 <button type="submit" className="btn btn-secondary align-bottom">
