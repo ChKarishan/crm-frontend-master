@@ -64,6 +64,13 @@ const CrmDeals = () => {
     if (successMessage) {
       const timeout = setTimeout(() => {
         setSuccessMessage('Dealseinnggjdsfj nfdsau');
+        setFormData({
+          amount: "",
+          closedate: "",
+          dealname: "",
+          pipeline : "",
+          dealstage: ""
+        });
  
       }, 15000); // Display success message for 3 seconds
       return () => clearTimeout(timeout);
