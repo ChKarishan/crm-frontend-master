@@ -295,13 +295,13 @@ const Navdata = () => {
                     stateVariables: isEcommerce,
                     childItems: [
                         { id: 1, label: "Add Installers", link: "/apps-ecommerce-products", parentId: "apps" },
-                        { id: 2, label: "Product Details", link: "/apps-ecommerce-product-details", parentId: "apps" },
+                        // { id: 2, label: "Product Details", link: "/apps-ecommerce-product-details", parentId: "apps" },
                         // { id: 3, label: "Sales Details", link: "/apps-ecommerce-add-product", parentId: "apps" },
-                        { id: 4, label: "Orders", link: "/apps-ecommerce-orders", parentId: "apps" },
+                        // { id: 4, label: "Orders", link: "/apps-ecommerce-orders", parentId: "apps" },
                         // { id: 5, label: "Deal Details", link: "/apps-ecommerce-order-details", parentId: "apps" },
-                        { id: 6, label: "Customers", link: "/apps-ecommerce-customers", parentId: "apps" },
-                        { id: 7, label: "Shopping Cart", link: "/apps-ecommerce-cart", parentId: "apps" },
-                        { id: 8, label: "Checkout", link: "/apps-ecommerce-checkout", parentId: "apps" },
+                        // { id: 6, label: "Customers", link: "/apps-ecommerce-customers", parentId: "apps" },
+                        // { id: 7, label: "Shopping Cart", link: "/apps-ecommerce-cart", parentId: "apps" },
+                        // { id: 8, label: "Checkout", link: "/apps-ecommerce-checkout", parentId: "apps" },
                         { id: 9, label: "Add New Sale", link: "/apps-ecommerce-sellers", parentId: "apps" },
                         { id: 10, label: "All Sales", link: "/apps-ecommerce-seller-details", parentId: "apps" },
                     ]
