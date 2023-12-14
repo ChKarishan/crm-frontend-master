@@ -63,7 +63,7 @@ const CrmDeals = () => {
   useEffect(() => {
     if (successMessage) {
       const timeout = setTimeout(() => {
-        setSuccessMessage('Dealseinnggjdsfj nfdsau');
+        setSuccessMessage('');
         setFormData({
           amount: "",
           closedate: "",
