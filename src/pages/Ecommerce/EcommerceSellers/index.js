@@ -25,84 +25,7 @@ import {
 } from "reactstrap";
 
 import API from "../../../common/data/FatchData";
-import classnames from "classnames";
-import { Link } from "react-router-dom";
-import { isEmpty } from "lodash";
-import Select from "react-select";
-
-//redux
-import { useSelector, useDispatch } from "react-redux";
-// Import actions
-import { getSellers as onGetSellers } from "../../../slices/thunks";
-import SellerChats from "./SellerChats";
-import { createSelector } from "reselect";
-
 const EcommerceSellers = () => {
-  // const dispatch = useDispatch();
-  // const [sellerList, setSellerList] = useState([]);
-  // const [modal, setModal] = useState(false);
-  // const [companyType, setcompanyType] = useState(null);
-
-  // const selectsellerData = createSelector(
-  //   (state) => state.Ecommerce.sellers,
-  //   (sellers) => sellers
-  // );
-  // // Inside your component
-  // const sellers = useSelector(selectsellerData);
-
-  // useEffect(() => {
-  //   setSellerList(sellers);
-  // }, [sellers]);
-
-  // useEffect(() => {
-  //   dispatch(onGetSellers());
-  // }, [dispatch]);
-
-  // useEffect(() => {
-  //   if (!isEmpty(sellers)) setSellerList(sellers);
-  // }, [sellers]);
-
-  // const toggle = () => {
-  //   if (modal) {
-  //     setModal(false);
-  //   } else {
-  //     setModal(true);
-  //   }
-  // };
-
-  // //Tab
-  // const [activeTab, setActiveTab] = useState("1");
-  // const toggleTab = (tab) => {
-  //   if (activeTab !== tab) {
-  //     setActiveTab(tab);
-  //   }
-  // };
-
-  // const companytypes = [
-  //   {
-  //     options: [
-  //       { label: "Select type", value: "Select type" },
-  //       { label: "All", value: "All" },
-  //       { label: "Merchandising", value: "Merchandising" },
-  //       { label: "Manufacturing", value: "Manufacturing" },
-  //       { label: "Partnership", value: "Partnership" },
-  //       { label: "Corporation", value: "Corporation" },
-  //     ],
-  //   },
-  // ];
-
-  // function handlecompanyType(companyType) {
-  //   setcompanyType(companyType);
-  // }
-
-  // const category = (e) => {
-  //   if (e === "All") {
-  //     var filter = sellers.filter((item) => item.category !== e);
-  //   } else {
-  //     filter = sellers.filter((item) => item.category === e);
-  //   }
-  //   setSellerList(filter);
-  // };
 
 
   const [formData, setFormData] = useState({
@@ -112,29 +35,80 @@ const EcommerceSellers = () => {
     Price : '',
     financingDetails: '',
     Date : '',
+    Installers : []
+
   });
   const [successMessage, setSuccessMessage] = useState('');
+  
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+
+  const [checkedItems, setCheckedItems] = useState([]);
+
+  // Function to handle checkbox changes
+  const handleCheckboxChange = (value) => {
+   
+    // Check if the value is already in the array
+    const isChecked = checkedItems.includes(value);
+
+    // If it's checked, remove it; otherwise, add it
+    if (isChecked) {
+      // setFormData({ ...formData.Installers.filter(item => item !== value) });
+      setCheckedItems(checkedItems.filter(item => item !== value));
+    } else {
+    setCheckedItems([...checkedItems, value]);
+    }
+
+    // await setFormData({ ...formData, "Installers": checkedItems });
+    // console.log(formData);
+
+
+  };
+
+
+
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    // Handle form submission here (e.g., send data to backend)
-    console.log(formData);
+    console.log(checkedItems);
+    //  setFormData({ ...formData, "Installers": checkedItems });
+ 
 
+    let obj = {
+      numberOfPanels: formData.numberOfPanels,
+    totalWattage: formData.totalWattage,
+    redline: formData.redline,
+    Price : formData.Price,
+    financingDetails: formData.financingDetails,
+    Date : formData.Date,
+    installers : checkedItems
+
+     }
+
+     console.log(`obj valie ${obj}`);
+     console.log(obj);
      
-      API.postCreateSale(formData).then((response) => {
+      API.postCreateSale(obj).then((response) => {
          setSuccessMessage(response.data.message);
         console.log(`Add Sales ${response.data}`);
         // setMostPannelsSold(response.data.Price);
+        alert('Sales added successful!');
+        let path = `/dashboard-crm`; 
+           navigate(path);
+
+
       })
       .catch((error) => {
+
+        alert('failed! Check console for details.');
+
       });
   
 
-
+      
 
 
 
@@ -143,7 +117,7 @@ const EcommerceSellers = () => {
   useEffect(() => {
     if (successMessage) {
       const timeout = setTimeout(() => {
-        setSuccessMessage('Failed to add sales');
+        setSuccessMessage(' ');
  
       }, 15000); // Display success message for 3 seconds
       return () => clearTimeout(timeout);
@@ -369,6 +343,52 @@ const EcommerceSellers = () => {
                    
                   </div>
                 </CardBody> */}
+
+                <div className="px-3 fs-16">
+              
+                
+        <input
+        className="form-check-input mb-3"
+          type="checkbox"
+          value="SHazib Bilal"
+          checked={checkedItems.includes("Option 1")}
+          onChange={() => handleCheckboxChange("Option 1")}
+        />
+          <label>
+         Option 1
+        
+      </label>
+      </div>
+
+      {/* Checkbox for option 2 */}
+      <label>
+        <input
+          type="checkbox"
+          value="=Ali"
+          checked={checkedItems.includes("Ali")}
+          onChange={() => handleCheckboxChange("Ali")}
+        />
+        Option 2
+      </label>
+
+      {/* Checkbox for option 3 */}
+
+      <label>
+        <input
+          type="checkbox"
+          value="Option 3"
+          checked={checkedItems.includes("Option 3")}
+          onChange={() => handleCheckboxChange("Option 3")}
+        />
+        Option 3
+      </label>
+
+
+
+
+
+
+
 
                 <div className="text-center mb-3">
                 <button type="submit" className="btn btn-secondary align-bottom">

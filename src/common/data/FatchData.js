@@ -219,7 +219,7 @@ const API = {
 
 
     // Create Sales
-    postCreateSale: (userId, userData) => {
+    postCreateSale: (userData) => {
       return api.post(`/sales/createSale`, userData);
     },
 

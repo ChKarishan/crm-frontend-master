@@ -57,12 +57,12 @@ const CrmContacts = () => {
          console.log(successMessage);
         console.log(`contact created ${response.data}`);
         // setMostPannelsSold(response.data.Price);
-        alert('API call successful!');
+        alert('Contact added successful!');
         let path = `/dashboard-crm`; 
-    navigate(path);
+           navigate(path);
       })
       .catch((error) => {
-        alert('API call failed! Check console for details.');
+        alert('failed! Check console for details.');
       });
 
      
