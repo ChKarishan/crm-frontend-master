@@ -18,6 +18,7 @@ const Widgets = () => {
         // Example of using the getUser function from the API file
 
         API.getannualdeals().then((response) => {
+            console.log(response.data);
             getannualdeals(response.data);
         })
 
