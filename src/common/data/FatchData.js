@@ -140,7 +140,9 @@ const API = {
     return api.get('/deals/dealsThisYear');
   },
 
-
+  getLeadConversations: () => {
+    return api.get('/deals/getClosedWonDeals');
+  },
 
 
 
