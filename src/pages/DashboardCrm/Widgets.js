@@ -146,11 +146,11 @@ const Widgets = () => {
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={'$'}
+                                                        // prefix={'$'}
                                                         // suffix={'%'}
                                                         // separator={}
                                                         end={annualdeals}
-                                                        decimals={2}
+                                                        // decimals={2}
                                                         duration={4}
                                                     />
                                                 </span></h4>
