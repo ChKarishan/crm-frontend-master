@@ -136,7 +136,9 @@ const API = {
     return api.put(`/updateDeal/${userId}`, userData);
   },
 
-
+  getannualdeals: () => {
+    return api.get('/deals/dealsThisYear');
+  },
 
 
 
