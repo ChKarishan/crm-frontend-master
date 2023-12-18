@@ -440,9 +440,9 @@ const EcommerceAddProduct = (props) => {
             <th scope="col">ID</th>
             <th scope="col">Name</th>
             <th scope="col">Phone</th>
-            <th scope="col">Assignee</th>
+            {/* <th scope="col">Assignee</th>
             <th scope="col">Price</th>
-            <th scope="col"></th>
+            <th scope="col"></th> */}
         </tr>
     </thead>
     <tbody>
@@ -453,13 +453,13 @@ const EcommerceAddProduct = (props) => {
             <td>{item.name}</td>
             <td>{item.phoneNumber}</td>
             {/* <td><span className="badge bg-primary-subtle text-primary">Backlog</span></td> */}
-            <td>Lanora Sandoval</td>
+            {/* <td>Lanora Sandoval</td>
             <td>$4,521</td>
             <td>
               
 
               <i className="ri-delete-bin-line bg-secoundry"></i>
-            </td>
+            </td> */}
         </tr>
 
 

@@ -76,7 +76,7 @@ const RecentOrders = () => {
                                             
                                                 <Link to="/apps-ecommerce-orders" state={{ from: {dealname : item.heading ,  
                                                           amount:  item.discription
-                                        } }}   className="text-body fw-medium">View details</Link></td>
+                                        } }}   className="text-body fw-medium">Details</Link></td>
                                                
                                         </tr>
                                     ))}

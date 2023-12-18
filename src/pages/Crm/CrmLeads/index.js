@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {  Container, Row } from 'reactstrap';
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
-import { Card, CardBody, CardHeader, Col, DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown } from 'reactstrap';
+import { Card, CardBody,Table, CardHeader, Col, DropdownItem, DropdownMenu, DropdownToggle, UncontrolledDropdown } from 'reactstrap';
 import { Link } from 'react-router-dom';
 import SimpleBar from "simplebar-react";
 import API from '../../../common/data/FatchData';
@@ -64,7 +64,7 @@ const CrmLeads = () => {
                         </div>
                     </CardHeader>
 
-                    <CardBody>
+                    {/* <CardBody>
                         <div className="table-responsive table-card grow" >
                         <SimpleBar style={{ maxHeight: "324px" }}>
                             <table className="table table-borderless table-centered align-middle table-nowrap mb-0">
@@ -78,7 +78,7 @@ const CrmLeads = () => {
                                         <th scope="col" style={{ width: "12%" }}>pipeline</th>
                                     </tr>
                                 </thead>
-                                {/* style={ "overflow-y: auto ; max-height: 100px"} */}
+                                
                              
                                 <tbody className="overflow-auto">
                                
@@ -91,12 +91,6 @@ const CrmLeads = () => {
                                             <td>{item.properties.createdate}</td>
                                             <td>{item.properties.dealstage}</td>
                                             <td>{item.properties.pipeline}</td>
-                                     
-{/* 
-                                            <td><img src={item.img} alt="" className="avatar-xs rounded-circle me-2" />
-                                                <Link to="#" className="text-body fw-medium">{item.representativeName}</Link></td>
-                                            <td><span className={"badge bg-" + item.badgeClass + "-subtle text-"+item.badgeClass + " p-2"}>{item.status}</span></td>
-                                            <td><div className="text-nowrap">{item.statusValue}</div></td> */}
                                         </tr>
                                     ))}
                                   
@@ -107,7 +101,59 @@ const CrmLeads = () => {
                             </table>
                             </SimpleBar>
                         </div>
-                    </CardBody>
+                    </CardBody> */}
+
+{/* 
+                    <CardHeader>
+                      <h3>Installers List</h3>
+                 
+                  
+</CardHeader> */}
+
+
+<div className="table-responsive">
+<Table className="table-bordered border-secondary table-nowrap align-middle mb-0">
+    <thead>
+        <tr>
+            <th scope="col">Deal Name</th>
+            <th scope="col">Amount</th>
+            <th scope="col">Dealstage</th>
+            <th scope="col">Pipeline</th>
+
+
+        </tr>
+    </thead>
+    <tbody>
+    {(data || []).map((item, key) => (
+
+        <tr>
+            
+            <td>{item.properties.dealname}</td>
+            <td>{item.properties.amount}</td>
+            <td>{item.properties.dealstage}</td>
+            <td>{item.properties.pipeline}</td>
+            <td>
+                                            
+            <Link to='/apps-ecommerce-order-details' state={{ from: {dealname : item.properties.dealname ,  
+                    amount:  item.properties.amount,
+                    closedate : item.properties.closedate,
+                    createdate: item.properties.createdate,
+                    dealstage : item.properties.dealstage,
+                    pipeline: item.properties.pipeline
+            } }}   className="text-body ">Details</Link></td>
+                                           
+                                    
+           
+        </tr>
+
+
+    ))}
+
+    
+ 
+    </tbody>
+</Table>
+</div>
                 </Card>
   
 

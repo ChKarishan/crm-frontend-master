@@ -41,8 +41,6 @@ const CrmDeals = () => {
     e.preventDefault();
     // Handle form submission here (e.g., send data to backend)
     console.log(formData);
-
-     
       API.postCreateDeal(formData).then((response) => {
          setSuccessMessage(response.data.message);
         console.log(`deal created ${response.data}`);
@@ -55,8 +53,6 @@ const CrmDeals = () => {
       .catch((error) => {
         alert('Error.');
       });
-  
-      
 
   };
 

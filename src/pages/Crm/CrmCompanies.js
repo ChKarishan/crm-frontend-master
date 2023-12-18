@@ -10,6 +10,7 @@ import {
   Row,
   Card,
   CardHeader,
+  Table,
   CardBody,
   ModalBody,
   Label,
@@ -85,54 +86,53 @@ const CrmCompanies = () => {
                           </div> */}
                       </CardHeader>
   
-                      <CardBody>
-                          <div className="table-responsive table-card grow" >
-                          <SimpleBar style={{ maxHeight: "324px" }}>
-                              <table className="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                  <thead className="text-muted table-light">
-                                      <tr className="text-muted">
-                                          <th scope="col" style={{ width: "20%" }}>Email </th>
-                                          <th scope="col" style={{ width: "20%" }}>FirstName</th>
-                                         
-                                          <th scope="col" style={{ width: "16%" }}>Creating Date</th>
-                                      </tr>
-                                  </thead>
-                                  {/* style={ "overflow-y: auto ; max-height: 100px"} */}
-                               
-                                  <tbody className="overflow-auto">
-                                 
-                                      {( data || []).map((item, index) => (
-  
-                                          <tr key={index}>
-                                              <td>{item.properties.email}</td>
-                                              <td>{item.properties.firstname}</td>
+                      <div className="table-responsive">
+<Table className="table-bordered border-secondary table-nowrap align-middle mb-0">
+    <thead>
+        <tr>
+            <th scope="col">Name</th>
+            <th scope="col">Email</th>
+            <th scope="col">Creatation Deal</th>
+           
+
+
+        </tr>
+    </thead>
+    <tbody>
+    {(data || []).map((item, key) => (
+
+        <tr>
+            
+            <td>{item.properties.firstname}</td>
+            <td>{item.properties.email}</td>
+            <td>{item.properties.createdate}</td>
+         
+           
+             {/* <td>
                                             
-                                              <td>{item.properties.createdate}</td>
-                                            
-  {/* 
-                                              <td><img src={item.img} alt="" className="avatar-xs rounded-circle me-2" />
-                                                  <Link to="#" className="text-body fw-medium">{item.representativeName}</Link></td>
-                                              <td><span className={"badge bg-" + item.badgeClass + "-subtle text-"+item.badgeClass + " p-2"}>{item.status}</span></td>
-                                              <td><div className="text-nowrap">{item.statusValue}</div></td> */}
-                                          </tr>
-                                      ))}
-                                    
-                      
-                     
-                                  </tbody>
-                                
-                              </table>
-                              </SimpleBar>
-                          </div>
-                      </CardBody>
+           <Link to='/apps-ecommerce-order-details' state={{ from: {dealname : item.properties.dealname ,  
+                    amount:  item.properties.amount,
+                    closedate : item.properties.closedate,
+                    createdate: item.properties.createdate,
+                    dealstage : item.properties.dealstage,
+                    pipeline: item.properties.pipeline
+            } }}   className="text-body ">Details</Link></td>
+                                           
+                                     */}
+           
+        </tr>
+
+
+    ))}
+
+    
+ 
+    </tbody>
+</Table>
+</div>
                   </Card>
     
-                  {/* <button
-          type="submit"
-          className="w-full bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-md focus:outline-none"
-        >
-          Submit
-        </button> */}
+                
               
   
               </Col>
