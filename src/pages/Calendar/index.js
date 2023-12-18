@@ -25,9 +25,9 @@ import {
 
 import BreadCrumb from "../../Components/Common/BreadCrumb";
 
-
+import { useNavigate } from "react-router-dom";
 const Calender = () => {
-
+  let navigate = useNavigate();
   const [formData, setFormData] = useState({
     heading: '',
     discription: '',
@@ -50,8 +50,12 @@ const Calender = () => {
        setSuccessMessage(response.data.message);
       console.log(`deal created ${response.data}`);
       // setMostPannelsSold(response.data.Price);
+      alert('News added successful!');
+      let path = `/dashboard`; 
+         navigate(path);
     })
     .catch((error) => {
+      alert('failed to add news! Check console for details.');
     });
   };
 

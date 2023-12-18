@@ -1,15 +1,7 @@
-import React, { useEffect, useState, useMemo } from "react";
+import React, { useEffect, useState } from "react";
 
 import {
   Container,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownItem,
-  DropdownMenu,
-  Nav,
-  NavItem,
-  NavLink,
-  UncontrolledCollapse,
   Row,
   Card,
   CardBody,
@@ -18,34 +10,17 @@ import {
   Label,
   Col,
 } from "reactstrap";
-import classnames from "classnames";
-
-// RangeSlider
-import Nouislider from "nouislider-react";
 import "nouislider/distribute/nouislider.css";
-import DeleteModal from "../../../Components/Common/DeleteModal";
+import API from "../../../common/data/FatchData";
 
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
-import TableContainer from "../../../Components/Common/TableContainer";
-import { Rating, Published, Price } from "./EcommerceProductCol";
-//Import data
-import { productsData } from "../../../common/data";
 
-//Import actions
-import { getProducts as onGetProducts, deleteProducts } from "../../../slices/thunks";
-import { isEmpty } from "lodash";
-import Select from "react-select";
-
-//redux
-import { useSelector, useDispatch } from "react-redux";
-import { Link } from "react-router-dom";
-import { toast, ToastContainer } from "react-toastify";
-import { createSelector } from "reselect";
+import { useNavigate } from "react-router-dom";
 
 
 
 const EcommerceProducts = (props) => {
-
+  let navigate = useNavigate();
   const [formData, setFormData] = useState({
     Name: '',
     phonenumber: '',
@@ -63,12 +38,16 @@ const EcommerceProducts = (props) => {
     console.log(formData);
 
      
-      API.postCreateSale(formData).then((response) => {
+      API.postNewInstaller(formData).then((response) => {
          setSuccessMessage(response.data.message);
         console.log(`Add installer ${response.data}`);
-        // setMostPannelsSold(response.data.Price);
+        alert('News added successful!');
+        let path = `/dashboard`; 
+           navigate(path);
       })
       .catch((error) => {
+        alert('failed to add Installer Data! Check console for details');
+      
       });
 
   };
