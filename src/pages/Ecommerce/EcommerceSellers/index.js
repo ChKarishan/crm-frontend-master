@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 //Import Flatepicker
+import { useNavigate } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
 
 //Import Breadcrumb
@@ -26,13 +27,13 @@ import {
 
 import API from "../../../common/data/FatchData";
 const EcommerceSellers = () => {
-
+  let navigate = useNavigate(); 
 
   const [formData, setFormData] = useState({
-    numberOfPanels: '',
-    totalWattage: '',
+    numberOfPanels: null,
+    totalWattage: null,
     redline: '',
-    Price : '',
+    Price : null,
     financingDetails: '',
     Date : '',
     Installers : []
@@ -44,6 +45,12 @@ const EcommerceSellers = () => {
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
+
+
+
+
+
+
 
 
   const [checkedItems, setCheckedItems] = useState([]);
@@ -67,6 +74,25 @@ const EcommerceSellers = () => {
 
 
   };
+
+  const [data, setData] = useState(null);
+
+
+  useEffect(() => {
+    // Example of using the getUser function from the API file
+
+    // Api call for Largest Sales
+    API.getAllInstaller().then((response) => {
+      console.log(response.data);
+      setData(response.data);
+      })
+      .catch((error) => {
+      });
+
+  }, []);
+
+
+
 
 
 
@@ -344,50 +370,25 @@ const EcommerceSellers = () => {
                   </div>
                 </CardBody> */}
 
-                <div className="px-3 fs-16">
-              
-                
-        <input
-        className="form-check-input mb-3"
-          type="checkbox"
-          value="SHazib Bilal"
-          checked={checkedItems.includes("Option 1")}
-          onChange={() => handleCheckboxChange("Option 1")}
+                <h2 className="px-3 "> Add Installers</h2>
+
+        {(data || []).map((item, key) => (
+          <div className="px-3 fs-16">
+            <input
+            className="form-check-input mb-3"
+            type="checkbox"
+            // value=  `item.name`
+            checked={checkedItems.includes(item._id)}
+            onChange={() => handleCheckboxChange(item._id)}
         />
           <label>
-         Option 1
+        {item.name}
         
       </label>
       </div>
 
-      {/* Checkbox for option 2 */}
-      <label>
-        <input
-          type="checkbox"
-          value="=Ali"
-          checked={checkedItems.includes("Ali")}
-          onChange={() => handleCheckboxChange("Ali")}
-        />
-        Option 2
-      </label>
 
-      {/* Checkbox for option 3 */}
-
-      <label>
-        <input
-          type="checkbox"
-          value="Option 3"
-          checked={checkedItems.includes("Option 3")}
-          onChange={() => handleCheckboxChange("Option 3")}
-        />
-        Option 3
-      </label>
-
-
-
-
-
-
+                ))}
 
 
                 <div className="text-center mb-3">

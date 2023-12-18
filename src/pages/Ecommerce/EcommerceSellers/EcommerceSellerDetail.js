@@ -44,147 +44,7 @@ import { createSelector } from "reselect";
 
 
 const EcommerceSellerDetail = () => {
-  // const dispatch = useDispatch();
-
-  // const ecomsellerData = createSelector(
-  //   (state) => state.Ecommerce.products,
-  //   (products) => products
-  // );
-  // // Inside your component
-  // const products = useSelector(ecomsellerData);
-
-  // const [productList, setProductList] = useState([]);
-
-  // useEffect(() => {
-  //   if (products && !products.length) {
-  //     dispatch(onGetProducts());
-  //   }
-  // }, [dispatch,products]);
-
-  // useEffect(() => {
-  //   setProductList(products);
-  // }, [products]);
-
-  // const columns = useMemo(
-  //   () => [
-  //     {
-  //       Header: "#",
-  //       Cell: () => {
-  //         return <input type="checkbox" className="form-check-input"/>;
-  //       },
-  //     },
-  //     {
-  //       Header: "Product",
-  //       Cell: (product) => (
-  //         <>
-  //           <div className="d-flex align-items-center">
-  //             <div className="flex-shrink-0 me-3">
-  //               <div className="avatar-sm bg-light rounded p-1">
-  //                 <img
-  //                   src={process.env.REACT_APP_API_URL + "/images/products/" + product.row.original.image}
-  //                   alt=""
-  //                   className="img-fluid d-block"
-  //                 />
-  //               </div>
-  //             </div>
-  //             <div className="flex-grow-1">
-  //               <h5 className="fs-14 mb-1">
-  //                 <a
-  //                   href="apps-ecommerce-product-details"
-  //                   className="text-body"
-  //                 >
-  //                   {" "}
-  //                   {product.row.original.name}
-  //                 </a>
-  //               </h5>
-  //               <p className="text-muted mb-0">
-  //                 Category :{" "}
-  //                 <span className="fw-medium">
-  //                   {" "}
-  //                   {product.row.original.category}
-  //                 </span>
-  //               </p>
-  //             </div>
-  //           </div>
-  //         </>
-  //       ),
-  //     },
-  //     {
-  //       Header: "Stock",
-  //       accessor: "stock",
-  //       filterable: false,
-  //     },
-  //     {
-  //       Header: "Price",
-  //       accessor: "price",
-  //       filterable: false,
-  //       Cell: (cellProps) => {
-  //         return <Price {...cellProps} />;
-  //       },
-  //     },
-  //     {
-  //       Header: "Orders",
-  //       accessor: "orders",
-  //       filterable: false,
-  //     },
-  //     {
-  //       Header: "Rating",
-  //       accessor: "rating",
-  //       filterable: false,
-  //       Cell: (cellProps) => {
-  //         return <Rating {...cellProps} />;
-  //       },
-  //     },
-  //     {
-  //       Header: "Published",
-  //       accessor: "publishedDate",
-  //       filterable: false,
-  //       Cell: (cellProps) => {
-  //         return <Published {...cellProps} />;
-  //       },
-  //     },
-  //     {
-  //       Header: "Action",
-  //       Cell: (cellProps) => {
-  //         return (
-  //           <UncontrolledDropdown>
-  //             <DropdownToggle
-  //               href="#"
-  //               className="btn btn-soft-secondary btn-sm"
-  //               tag="button"
-  //             >
-  //               <i className="ri-more-fill" />
-  //             </DropdownToggle>
-  //             <DropdownMenu className="dropdown-menu-end">
-  //               <DropdownItem href="apps-ecommerce-product-details">
-  //                 <i className="ri-eye-fill align-bottom me-2 text-muted"></i>{" "}
-  //                 View
-  //               </DropdownItem>
-
-  //               <DropdownItem href="apps-ecommerce-add-product">
-  //                 <i className="ri-pencil-fill align-bottom me-2 text-muted"></i>{" "}
-  //                 Edit
-  //               </DropdownItem>
-
-  //               <DropdownItem divider />
-
-  //               <DropdownItem
-  //                 href="#"
-  //                 data-bs-toggle="modal"
-  //                 data-bs-target="#removeItemModal"
-  //               >
-  //                 <i className="ri-delete-bin-fill align-bottom me-2 text-muted"></i>{" "}
-  //                 Delete
-  //               </DropdownItem>
-  //             </DropdownMenu>
-  //           </UncontrolledDropdown>
-  //         );
-  //       },
-  //     },
-  //   ],
-  //   []
-  // );
-
+ 
   const [data, setData] = useState(null);
   let navigate = useNavigate(); 
 
@@ -228,8 +88,7 @@ document.title =" Sales ";
                             <button type="button" onClick={handleClick} className="btn btn-soft-secondary btn-sm">
 
                             Add New Sale
-                             {/* adding new comment */}
-                                {/* <i className="ri-file-list-3-line align-middle"></i> Add New */}
+      
                             </button>
                         </div>
                     </CardHeader>
@@ -245,18 +104,15 @@ document.title =" Sales ";
 
             <Link to='/apps-ecommerce-add-product' state={{ from: {
                                         
-                                        // dealname : item.properties.dealname ,  
-                                        // amount:  item.properties.amount,
-                                        // closedate : item.properties.closedate,
-                                        // createdate: item.properties.createdate,
-                                        // dealstage : item.properties.dealstage,
-                                        // pipeline: item.properties.pipeline
-                                        ItemName:  item.ItemName,
+                                        
+                                        totalWattage:  item.totalWattage,
+                                        redline : item.redline,
+                                        numberOfPanels : item.numberOfPanels,
+                                        installers : item.installers,
+                                        financingDetails : item.financingDetails,
                                         Price: item.Price,
                                         date: item.Date,
-                                        _id : item._id,
-                                        SaleId : item.SaleId,
-                                        itemID : item.itemID,
+                                        id : item._id,
                                         agent : item.agent,
 
 
