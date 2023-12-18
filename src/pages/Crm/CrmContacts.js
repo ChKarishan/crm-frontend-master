@@ -58,7 +58,7 @@ const CrmContacts = () => {
         console.log(`contact created ${response.data}`);
         // setMostPannelsSold(response.data.Price);
         alert('Contact added successful!');
-        let path = `/dashboard-crm`; 
+        let path = `/apps-crm-companies`; 
            navigate(path);
       })
       .catch((error) => {
@@ -240,23 +240,6 @@ const CrmContacts = () => {
                 </CardBody> 
 
 
-                {/* <CardBody>
-                  <div className="mb-3">
-                    <Label className="form-label" htmlFor="product-title-input">
-                     Deal Stage
-                    </Label>
-                    <Input
-                     type="text"
-                     id="pipeline"
-                      name="pipeline"
-                      value={formData.pipeline}
-                      onChange={handleChange}
-                      placeholder="Enter pipeline"
-                        />
-                        
-                   
-                  </div>
-                </CardBody> */}
 
 
                 <CardBody>
@@ -271,7 +254,7 @@ const CrmContacts = () => {
                    value={formData.LifeCyclestage}
                    onChange={handleChange}
                         >
-                          <option value="">Select Deal Stage</option>
+                          <option value="">Select</option>
                         <option value="subscriber">subscriber</option>
                         <option value="lead">lead</option>
                         <option value="marketingqualifiedlead">marketingqualifiedlead</option>
@@ -293,12 +276,6 @@ const CrmContacts = () => {
           </div>
         )} 
 
-                {/* <button
-          type="submit"
-          className="w-full bg-blue-500 hover:bg-blue-700 text-black font-bold py-2 px-4 rounded-md focus:outline-none"
-        >
-          Submit 
-        </button> */}
 
         <div className="text-center mb-3">
                 <button type="submit" className="btn btn-secondary align-bottom">
