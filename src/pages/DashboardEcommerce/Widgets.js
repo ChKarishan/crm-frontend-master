@@ -189,6 +189,29 @@ const Widgets = () => {
                                         </div>
                                     </div>
                                 </div>
+                                <div className="col">
+                                    <div className="py-4 px-3">
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">most Pannels Sold</h5>
+                                        <div className="d-flex align-items-center">
+                                            <div className="flex-shrink-0">
+                                                <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i>
+                                            </div>
+                                            <div className="flex-grow-1 ms-3">
+                                                <h4 className="mb-0"><span className="counter-value" data-target="197">
+                                                    <CountUp
+                                                        start={0}
+                                                        prefix={''}
+                                                        suffix={'MW'}
+                                                        // separator={}
+                                                        end={mostPannelsSold}
+                                                        decimals={2}
+                                                        duration={4}
+                                                    />
+                                                </span></h4>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
                            
                           
                             
@@ -198,62 +221,6 @@ const Widgets = () => {
                 </div>
             </div>
         
-
-
-
-                 <div className='flex'>
-                 <div className="flex-auto">
-                <Card className="card-animate mr-8">
-                        <CardBody >
-                            <div className="d-flex align-items-center">
-                                <div className="flex-grow-1 overflow-hidden">
-                                    <p className="text-uppercase fw-medium text-muted text-truncate mb-0">most Pannels Sold</p>
-                                </div>
-                                <div className="flex-shrink-0">
-                                    <h5 className={"fs-14 mb-0 text- success"}>
-                                        </h5>
-                                </div>
-                            </div>
-                            <div className="d-flex align-items-end justify-content-between mt-4">
-                                <div>
-                                    <h4 className="fs-20 fw-semibold ff-secondary mb-4"><span className="counter-value" data-target="1229.25">
-                                        <CountUp
-                                            start={0}
-                                            // prefix=""
-                                            // suffix=""
-                                            end={mostPannelsSold}
-                                            decimals={2}
-                                            duration={4}
-                                        />
-                                    </span></h4>
-                                     <Link to={'#'} className="text-decoration-underline">view all</Link> 
-                                </div>
-                               
-                            </div>
-                        </CardBody>
-
-                        
-                    </Card>
-
-                    </div>
-
-                    {/* // secound card */}
-
-                
-
-
-                     
-
-                             
-
-</div>
-                   
-
-
-                {/* </Col> */}
-                {/* ) */}
-                {/* ) */}
-                {/* } */}
         </React.Fragment>
     );
 };

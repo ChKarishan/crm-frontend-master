@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-//  const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
+ const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
 
-const BASE_URL ="http://localhost:3002";
+// const BASE_URL ="http://localhost:3002";
 
 // Your API base URL
 
