@@ -17,6 +17,15 @@ const Widgets = () => {
     useEffect(() => {
         // Example of using the getUser function from the API file
 
+        API.getLeadConversations().then((response) => {
+            getLeadConversations(response.data);
+        })
+
+        API.getannualdeals().then((response) => {
+            console.log(response.data);
+            getannualdeals(response.data);
+        })
+
         API.getDailyAverageSale().then((response) => {
             getdailyIncome(response.data);
         })
@@ -77,7 +86,7 @@ const Widgets = () => {
 
                                 <div className="col">
                                     <div className="py-4 px-3">
-                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Lead Conversation
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Deals Closed Won
                                         {/* <i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i> */}
                                         </h5>
                                         <div className="d-flex align-items-center">
@@ -88,11 +97,11 @@ const Widgets = () => {
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={'$'}
+                                                        // prefix={'$'}
                                                         // suffix={'%'}
                                                         // separator={}
                                                         end={leadConversations}
-                                                        decimals={2}
+                                                        // decimals={2}
                                                         duration={4}
                                                     />
                                                 </span></h4>
@@ -141,11 +150,11 @@ const Widgets = () => {
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={'$'}
+                                                        // prefix={'$'}
                                                         // suffix={'%'}
                                                         // separator={}
                                                         end={annualdeals}
-                                                        decimals={2}
+                                                        // decimals={2}
                                                         duration={4}
                                                     />
                                                 </span></h4>
