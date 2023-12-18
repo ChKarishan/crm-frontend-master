@@ -53,10 +53,10 @@ export const registerUser = (user) => async (dispatch) => {
     // if(){
 
 
-      if (data.message === "success") {
-        dispatch(registerUserSuccessful(data));
+      if (dataa.message === "success") {
+        dispatch(registerUserSuccessful(dataa));
       } else {
-        dispatch(registerUserFailed(data));
+        dispatch(registerUserFailed(dataa));
       }
     }
   } catch (error) {

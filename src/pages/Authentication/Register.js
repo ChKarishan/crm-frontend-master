@@ -4,7 +4,7 @@ import { Row, Col, CardBody, Card, Alert, Container, Input, Label, Form, FormFee
 // Formik Validation
 import * as Yup from "yup";
 import { useFormik } from "formik";
-
+import API from "../../common/data/FatchData";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -34,7 +34,7 @@ const Register = () => {
             username: '',
             password: '',
             confirm_password: '',
-            referralCode : ''
+            referralCode : null
         },
         validationSchema: Yup.object({
             email: Yup.string().required("Please Enter Your Email"),
@@ -45,8 +45,29 @@ const Register = () => {
                 .required("Please confirm your password"),
         }),
         onSubmit: (values) => {
-            dispatch(registerUser(values));
-        }
+
+            console.log(`here value is ${values}`);
+
+
+            API.postUserRegister(values).then((response) => {
+                // setSuccessMessage(response.data.message);
+                // console.log(successMessage);
+               console.log(`User Registers created ${response.data}`);
+               
+               alert('Registered successful!');
+               
+               history("/login")
+                 
+             }).catch((error) => {
+                 alert('Error in Deal Creatation! Check your Console');
+             });
+
+
+
+          
+
+           }
+        
     });
 
 
@@ -58,32 +79,40 @@ const Register = () => {
             error: account.error
         })
     );
+
+
+
+
     // Inside your component
-    const {
-        error, success
-    } = useSelector(registerdatatype);
 
-    useEffect(() => {
-        dispatch(apiError(""));
-    }, [dispatch]);
 
-    useEffect(() => {
-        if (success) {
-            setTimeout(() => history("/login"), 3000);
-        }
 
-        setTimeout(() => {
-            dispatch(resetRegisterFlag());
-        }, 3000);
+    const { error, success  } = useSelector(registerdatatype);
 
-    }, [dispatch, success, error, history]);
+    // useEffect(() => {
+    //     dispatch(apiError(""));
+    // }, [dispatch]);
+
+    // useEffect(() => {
+    //     if (success) {
+    //         setTimeout(() => history("/login"), 3000);
+    //     }
+
+    //     setTimeout(() => {
+    //         dispatch(resetRegisterFlag());
+    //     }, 3000);
+
+    // }, [dispatch, success, error, history]);
+
+
 
     document.title = "Basic SignUp | Velzon - React Admin & Dashboard Template";
 
     return (
         <React.Fragment>
             <ParticlesAuth>
-                <div className="auth-page-content mt-lg-5">
+            
+                <div className="auth-page-content ">
                     <Container>
                         <Row>
                             <Col lg={12}>
@@ -124,9 +153,9 @@ const Register = () => {
                                                             Register User Successfully and Your Redirect To Login Page...
                                                         </Alert>
                                                     </>
-                                                ) : null}
+                                                ) : null} 
 
-                                                {error && error ? (
+                                                 {error && error ? (
                                                     <Alert color="danger"><div>
                                                         Email has been Register Before, Please Use Another Email Address... </div></Alert>
                                                 ) : null}
