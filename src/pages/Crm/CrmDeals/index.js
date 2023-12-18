@@ -8,22 +8,14 @@ import {
   CardBody,
   Input,
   Label,
-  Button,
-  UncontrolledDropdown,
-  DropdownToggle,
-  DropdownMenu,
-  DropdownItem,
-  Modal,
-  Form,
-  ModalBody,
-  ModalFooter,
-  ModalHeader,
-} from "reactstrap";
+ } from "reactstrap";
 
 import BreadCrumb from "../../../Components/Common/BreadCrumb";
-
+import { useNavigate } from "react-router-dom";
 const CrmDeals = () => {
+  
 
+  let navigate = useNavigate();
   const [formData, setFormData] = useState({
     amount: '',
     closedate: '',
@@ -37,24 +29,56 @@ const CrmDeals = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
+  // const handleSubmit = (e) => {
+  //   e.preventDefault();
+   
+
+  //     API.postCreateDeal(formData).then((response) => {
+  //        setSuccessMessage(response.data.message);
+  //       console.log(`deal created ${response.data}`);
+
+  //       alert('Deals Created successfully!');
+  //       let path = `/dashboard-crm`; 
+  //       navigate(path);
+  //       // setMostPannelsSold(response.data.Price);
+  //     })
+  //     .catch((error) => {
+  //       alert('Error.');
+  //     });
+
+  // };
+
+
+
   const handleSubmit = (e) => {
-    e.preventDefault();
-    // Handle form submission here (e.g., send data to backend)
-    console.log(formData);
+    e.preventDefault();    
       API.postCreateDeal(formData).then((response) => {
          setSuccessMessage(response.data.message);
-        console.log(`deal created ${response.data}`);
-
-        alert('Deals Created successfully!');
-        let path = `/dashboard-crm`; 
-        navigate(path);
-        // setMostPannelsSold(response.data.Price);
-      })
-      .catch((error) => {
-        alert('Error.');
+         console.log(successMessage);
+        console.log(`Deal created ${response.data}`);
+        
+        alert('Deal added successful!');
+        let path = `/apps-crm-companies`; 
+           navigate(path);
+      }).catch((error) => {
+          alert('Error in Deal Creatation! Check your Console');
       });
+      
+
+     
+
+
+  
+      console.log(successMessage);
+
+
+
 
   };
+
+
+
+
 
   useEffect(() => {
     if (successMessage) {
@@ -201,46 +225,7 @@ const CrmDeals = () => {
 
 
 
-                {/* <CardBody>
-                  <div className="mb-3">
-                    <Label className="form-label" htmlFor="product-title-input">
-                     Deal Stage
-                    </Label>
-                    <Input
-                     type="text"
-                     id="pipeline"
-                      name="pipeline"
-                      value={formData.pipeline}
-                      onChange={handleChange}
-                      placeholder="Enter pipeline"
-                        />
-                        
-                   
-                  </div>
-                </CardBody> */}
-
-
-                {/* <CardBody>
-                  <div className="mb-3">
-                    <Label className="form-label" htmlFor="product-title-input">
-                     Deal Stage
-                    </Label>
-                    <select
-                    id="dealstage"
-                   name="dealstage"
-                   value={formData.dealstage}
-                   onChange={handleChange}
-                        >
-                          <option value="">Select Deal Stage</option>
-                        <option value="contractsent">contractsent</option>
-                        <option value="Negotiation">Negotiation</option>
-                        <option value="Closed">Closed</option>
-                        </select>
-
-
-                   
-                  </div>
-                </CardBody> */}
+             
 
         {successMessage && (
               <div className="bg-green-200 text-green-800 p-3 rounded-md mb-4">
