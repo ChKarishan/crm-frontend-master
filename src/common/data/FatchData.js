@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-  const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
+const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
 
 // const BASE_URL ="http://localhost:3002";
 
@@ -165,7 +165,7 @@ const API = {
   },
 
   // Getting Profile Picture
-  getUser: (userId) => {
+  getUserPicture: (userId) => {
     return api.get(`/getProfilePicture`);
   },
 
@@ -182,6 +182,19 @@ const API = {
   getMostReferral: () =>{
     return api.get('/profile/mostReferral');
   },
+
+  getParent: () =>{
+    return api.get('/profile/getParent');
+  },
+
+  getChildren: () =>{
+    return api.get('/profile/getChildren');
+  },
+  
+  getReferalCode: () =>{
+    return api.get('/profile/getReferalCode');
+  },
+
 
 
 
