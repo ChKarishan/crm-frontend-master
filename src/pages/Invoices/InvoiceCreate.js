@@ -18,6 +18,8 @@ import {
 import { Link, useNavigate } from "react-router-dom";
 import Flatpickr from "react-flatpickr";
 
+import API from "../../common/data/FatchData";
+
 import BreadCrumb from "../../Components/Common/BreadCrumb";
 import Select from "react-select";
 
@@ -189,6 +191,34 @@ const InvoiceCreate = () => {
       validation.resetForm();
     },
   });
+
+
+  const [data, setData] = useState(null);
+  const [code, setCode] = useState(null);
+
+  
+  useEffect(() => {
+      // Example of using the getUser function from the API file
+     
+
+
+      // Api call for Largest Sales
+      API.getGenealogy().then((response) => {
+        console.log(response.data);
+        setCode(response.data.genealogy.user.referralCode);
+        setData(response.data.genealogy.user.children);
+        })
+        .catch((error) => {
+        });
+
+
+     
+
+
+
+
+    }, []);
+
 
   return (
     <div className="page-content">
@@ -966,7 +996,7 @@ const InvoiceCreate = () => {
             <Col xl={3}>
             <Card >
               <CardHeader>
-                <h2>Bi2kin2</h2>
+                <h2>{code}</h2>
               </CardHeader>
             </Card>
             </Col>
@@ -977,13 +1007,14 @@ const InvoiceCreate = () => {
       
       <Row>  
       
+      {(data || []).map((item, key) => ( 
       <Card className="card-animate">
                     <CardBody>
                       <div className="d-flex align-items-center">
                         <div className="flex-grow-1">
                           <p className="text-uppercase fw-medium text-muted mb-0">
                           
-                            Aalhika
+                            {item.username}
                           </p>
                         </div>
                         <div className="flex-shrink-0">
@@ -992,7 +1023,7 @@ const InvoiceCreate = () => {
                               "fs-14 mb-0 text- success" 
                             }
                           >
-                            e
+                            
                           </h5>
                         </div>
                       </div>
@@ -1000,69 +1031,20 @@ const InvoiceCreate = () => {
                         <div>
                           <h4 className="fs-22 fw-semibold ff-secondary mb-4">
                         
-                            +54 4345 5432
+                          {item.email}
                           </h4>
                           
                         </div> 
                       </div>
                     </CardBody>
-                  </Card>
+       </Card>
 
-                  <Card className="card-animate">
-                    <CardBody>
-                      <div className="d-flex align-items-center">
-                        <div className="flex-grow-1">
-                          <p className="text-uppercase fw-medium text-muted mb-0">
-                            {/* {invoicewidget.label} */}
+       ))};
 
-                            {/* invoicewidget.label */}
-                            Aalhika
-                          </p>
-                        </div>
-                        <div className="flex-shrink-0">
-                          <h5
-                            className={
-                              "fs-14 mb-0 text- success" 
-                            }
-                          >
-                            {/* <i className={"fs-13 align-middle ri-arrow-right-up-line" }></i>{" "}
-                            invoicewidget.percentage */}
-                          </h5>
-                        </div>
-                      </div>
-                      <div className="d-flex align-items-end justify-content-between mt-4">
-                        <div>
-                          <h4 className="fs-22 fw-semibold ff-secondary mb-4">
-                            {/* <CountUp
-                              start={0}
-                              prefix={"$"}
-                              suffix={"%"}
-                              decimals="2"
-                              end={123}
-                              duration={4}
-                              className="counter-value"
-                            /> */}
-                            +54 4345 5432
-                          </h4>
-                           {/* <span className="badge bg-secondary me-1">
-                            invoicewidget.badge
-                          </span>{" "}
-                          <span className="text-muted">
-                            {" "}
-                            invoicewidget.caption
-                          </span>
-                        </div>
-                        <div className="avatar-sm flex-shrink-0">
-                          <span className="avatar-title bg-light rounded fs-3">
-                            <FeatherIcon
-                              icon="file-text"
-                              className="text-primary icon-dual-primary"
-                            />
-                          </span> */}
-                        </div> 
-                      </div>
-                    </CardBody>
-                  </Card>
+
+
+                  
+    
 
         </Row>
 

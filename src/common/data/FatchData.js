@@ -176,7 +176,7 @@ const API = {
 
   // Geting All Genealogy 
   getGenealogy: (userId) => {
-    return api.get(`/genealogy`);
+    return api.get(`/profile/genealogy`);
   },
 
   getMostReferral: () =>{
