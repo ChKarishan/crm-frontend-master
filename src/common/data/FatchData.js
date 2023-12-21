@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
+// const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
 
-// const BASE_URL ="http://localhost:3002";
+const BASE_URL ="http://localhost:3002";
 
 // Your API base URL
 
@@ -281,22 +281,22 @@ const API = {
 
     // Getting all Installers
   getAllInstaller: () => {
-    return api.get(`/installers/getAll`);
+    return api.get(`/installer/getAll`);
   },
 
   // Get one Installer information
   getOneInstaller: (id) => {
-    return api.get(`installers/getInstaller/${id}`);
+    return api.get(`installer/getInstaller/${id}`);
   },
 
   getListInstaller: (id) => {
-    return api.post(`installers/getListInstaller`, id);
+    return api.post(`installer/getListInstaller`, id);
   },
 
   // creating New Installer
 
   postNewInstaller: ( userData) => {
-    return api.post(`/installers/createInstaller`, userData);
+    return api.post(`/installer/createInstaller`, userData);
   },
 
 
@@ -305,6 +305,13 @@ const API = {
 postNote: ( userData) => {
   return api.post(`/saleNotes/createSaleNote`, userData);
 },
+
+
+
+getNote: (id) => {
+  return api.get(`saleNotes/getSaleNoteBySaleId/${id}`);
+},
+
 
 
 
