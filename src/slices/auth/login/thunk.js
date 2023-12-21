@@ -29,7 +29,7 @@ export const loginUser = (user, history) => async (dispatch) => {
            data = {"status" :  response.data.status, 
           "token" : response.data.token,
             "data" : {
-                "first_name" : "bilal"
+                "first_name" : response.data.first_name
             } 
         };
 

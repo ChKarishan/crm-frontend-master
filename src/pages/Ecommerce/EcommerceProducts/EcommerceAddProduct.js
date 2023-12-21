@@ -33,7 +33,7 @@ const EcommerceAddProduct = (props) => {
   const location = useLocation()
   const { from } = location.state;
 
-  console.log(`state is ${from.Price}`)
+  console.log(`state is ${from.id}`)
 
 
   const handleClick = () => {
@@ -58,6 +58,42 @@ const EcommerceAddProduct = (props) => {
 
       console.log(data);
   }, []);
+
+
+  const [formData, setFormData] = useState({
+    id : from.id,
+    noteText: '',
+  
+  });
+  const [successMessage, setSuccessMessage] = useState('');
+
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    console.log(formData);
+
+     
+    API.postNote(formData).then((response) => {
+      //  setSuccessMessage(response.data.message);
+      console.log(`note is added ${response.data}`);
+      setMostPannelsSold(response.data.Price);
+
+      alert('Added Note successful!');
+
+      setFormData({ ...formData, 'note': '' });
+     
+    })
+    .catch((error) => {
+      alert('failed to add news! Check console for details.');
+    });
+  };
+
+
 
 
 
@@ -452,14 +488,7 @@ const EcommerceAddProduct = (props) => {
             <td className="fw-medium">{key+1}</td>
             <td>{item.name}</td>
             <td>{item.phoneNumber}</td>
-            {/* <td><span className="badge bg-primary-subtle text-primary">Backlog</span></td> */}
-            {/* <td>Lanora Sandoval</td>
-            <td>$4,521</td>
-            <td>
-              
-
-              <i className="ri-delete-bin-line bg-secoundry"></i>
-            </td> */}
+         
         </tr>
 
 
@@ -472,21 +501,60 @@ const EcommerceAddProduct = (props) => {
 </div>
 </Card>
 
-    <div>
-        <Card>
-        <Col>
-          <div>
-            {/* <Label htmlFor="exampleFormControlTextarea5" className="form-label">Example Textarea</Label> */}
-            <textarea className="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
-          </div>
-          </Col>
-          <div className="mt-4">
-          <button className="btn btn-secondary w-10" type="submit">Add Notes</button>
-         </div>
-        </Card>
-        
+
+
+
+
+<form onSubmit={handleSubmit}>
+        <div className="mb-4">
        
-    </div>
+                <Card>
+               
+
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                    Notes
+                    </Label>
+                    <Input
+                        type="text"
+                    id="noteText"
+                    name="noteText"
+                    value={formData.noteText}
+                    onChange={handleChange}
+                        />
+                   
+                  </div>
+                </CardBody>
+
+
+   
+
+
+
+                
+
+                <div className="text-center mb-3">
+                <button type="submit" className="btn btn-secondary align-bottom">
+                  Add notes
+                </button>
+                </div>
+ 
+
+      
+              </Card>
+
+
+        </div>
+      
+     
+
+      
+      
+        
+      </form>
+
+    
 
 
   

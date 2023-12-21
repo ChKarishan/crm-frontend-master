@@ -281,26 +281,30 @@ const API = {
 
     // Getting all Installers
   getAllInstaller: () => {
-    return api.get(`/installer/getAll`);
+    return api.get(`/installers/getAll`);
   },
 
   // Get one Installer information
   getOneInstaller: (id) => {
-    return api.get(`installer/getInstaller/${id}`);
+    return api.get(`installers/getInstaller/${id}`);
   },
 
   getListInstaller: (id) => {
-    return api.post(`installer/getListInstaller`, id);
+    return api.post(`installers/getListInstaller`, id);
   },
 
   // creating New Installer
 
   postNewInstaller: ( userData) => {
-    return api.post(`/installer/createInstaller`, userData);
+    return api.post(`/installers/createInstaller`, userData);
   },
 
 
 
+// add Note Api Routes
+postNote: ( userData) => {
+  return api.post(`/saleNotes/createSaleNote`, userData);
+},
 
 
 
