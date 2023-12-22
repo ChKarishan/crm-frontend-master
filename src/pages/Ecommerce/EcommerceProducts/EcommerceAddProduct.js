@@ -84,9 +84,7 @@ const EcommerceAddProduct = (props) => {
     noteText: '',
   
   });
-  const [successMessage, setSuccessMessage] = useState('');
-  
-  const [dataa, setDataa] = useState([]);
+
 
 
   const handleChange = (e) => {
@@ -97,6 +95,7 @@ const EcommerceAddProduct = (props) => {
     e.preventDefault();
     
     console.log(formData);
+    setvar(formData.noteText);
 
      
     API.postNote(formData).then((response) => {
