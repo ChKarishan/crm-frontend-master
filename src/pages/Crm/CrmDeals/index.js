@@ -58,7 +58,7 @@ const CrmDeals = () => {
         console.log(`Deal created ${response.data}`);
         
         alert('Deal added successful!');
-        let path = `/apps-crm-companies`; 
+        let path = `/apps-crm-leads`; 
            navigate(path);
       }).catch((error) => {
           alert('Error in Deal Creatation! Check your Console');
