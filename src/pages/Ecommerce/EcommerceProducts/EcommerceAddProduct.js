@@ -70,8 +70,8 @@ const EcommerceAddProduct = (props) => {
     API.getNote(from.id).then((response) => {
 
       console.log(response.data);
-       console.log(response.data.noteText);
-      setvar(response.data.noteText);
+       console.log(response.data);
+      setvar(response.data);
       })
       .catch((error) => {
       });
@@ -480,52 +480,7 @@ const EcommerceAddProduct = (props) => {
             </Col>
       
 
-            {myVariable &&
-            <Col xl={6} md={6} >
-              <Card className="card-animate overflow-hidden">
-                <div
-                  className="position-absolute start-0"
-                  style={{ zIndex: "0" }}
-                >
-                  <svg
-                    version="1.2"
-                    xmlns="http://www.w3.org/2000/svg"
-                    viewBox="0 0 200 120"
-                    width="200"
-                    height="120"
-                  >
-                    <path
-                      id="Shape 8"
-                      style={{ opacity: ".05", fill: "#FF2D01" }}
-                      d="m189.5-25.8c0 0 20.1 46.2-26.7 71.4 0 0-60 15.4-62.3 65.3-2.2 49.8-50.6 59.3-57.8 61.5-7.2 2.3-60.8 0-60.8 0l-11.9-199.4z"
-                    />
-                  </svg>
-                </div>
-                <CardBody style={{ zIndex: "1" }}>
-                  <div className="d-flex align-items-center">
-                    <div className="flex-grow-1 overflow-hidden">
-                      <p className="text-uppercase fw-medium text-muted text-truncate mb-3">
-                      Note
-                      </p>
-                      <h4 className="fs-22 fw-semibold ff-secondary mb-0">
-                        <span className="counter-value" data-target="36894">
-                          {myVariable} 
-                        </span>
-                      </h4>
-                    </div>
-                    <div className="flex-shrink-0">
-                      {/* <DashboardCharts
-                        // seriesData={widget.series}
-                        seriesData={[95]} 
-                        colors= '#FF9882'
-                      /> */}
-                    </div>
-                  </div>
-                </CardBody>
-              </Card>
-            </Col>
-
-            }
+          
       
 
 
@@ -533,9 +488,49 @@ const EcommerceAddProduct = (props) => {
         
       </div>
     </Col>
+    {myVariable &&
+            
+
+         
+
+    <Card>
+<CardHeader>
+                      <h3>Notes about this Sale</h3>
+                 
+                  
+</CardHeader>
+    <div className="table-responsive">
+<Table className="table-bordered border-secondary table-nowrap align-middle mb-0">
+    {/* <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Phone</th>
+          
+        </tr>
+    </thead> */}
+
+    <tbody>
+    {(myVariable || []).map((item, key) => (
+
+        <tr>
+            {/* <td className="fw-medium">{key+1}</td> */}
+            <td>{item.noteText}</td>
+            {/* <td>{item.phoneNumber}</td> */}
+         
+        </tr>
 
 
+    ))}
 
+    
+ 
+    </tbody>
+</Table>
+</div>
+</Card>
+
+}
 
 
 <Card>
@@ -575,6 +570,9 @@ const EcommerceAddProduct = (props) => {
 </Table>
 </div>
 </Card>
+
+
+
 
 
 
