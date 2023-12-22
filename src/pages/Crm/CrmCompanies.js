@@ -27,6 +27,9 @@ import {
   FormFeedback
 } from "reactstrap";
 
+import { useNavigate } from "react-router-dom";
+
+
 import 'react-toastify/dist/ReactToastify.css';
 
 import API from "../../common/data/FatchData";
@@ -58,6 +61,14 @@ const CrmCompanies = () => {
 
     }, []);
 
+    let navigate = useNavigate(); 
+
+  const handleClick = () => {
+    console.log("Button clinck");
+    // Use the history object to navigate to the other page
+    let path = `/apps-crm-contacts`; 
+    navigate(path);
+  };
 
   document.title = "All Contacts | Velzon - React Admin & Dashboard Template";
   return (
@@ -71,19 +82,14 @@ const CrmCompanies = () => {
                   <Card >
                       <CardHeader className="align-items-center d-flex bg-secondary">
                           <h4 className="card-title mb-0 flex-grow-1 text-white">All Contacts</h4>
-                          {/* <div className="flex-shrink-0">
-                              <UncontrolledDropdown className="card-header-dropdown">
-                                  <DropdownToggle tag="a" className="text-reset dropdown-btn" role="button">
-                                      <span className="text-muted">02 Nov 2021 to 31 Dec 2021<i className="mdi mdi-chevron-down ms-1"></i></span>
-                                  </DropdownToggle>
-                                  <DropdownMenu className="dropdown-menu-end" end>
-                                      <DropdownItem>Today</DropdownItem>
-                                      <DropdownItem>Last Week</DropdownItem>
-                                      <DropdownItem>Last Month</DropdownItem>
-                                      <DropdownItem>Current Year</DropdownItem>
-                                  </DropdownMenu>
-                              </UncontrolledDropdown>
-                          </div> */}
+
+                          <button type="button" onClick={handleClick} className="btn btn-soft-secondary btn-sm">
+
+                            Add New  
+                             {/* adding new comment */}
+                                {/* <i className="ri-file-list-3-line align-middle"></i> Add New */}
+                            </button>
+                      
                       </CardHeader>
   
                       <div className="table-responsive">
@@ -92,7 +98,7 @@ const CrmCompanies = () => {
         <tr>
             <th scope="col">Name</th>
             <th scope="col">Email</th>
-            <th scope="col">Creatation Deal</th>
+            <th scope="col">Contact Creatation</th>
            
 
 

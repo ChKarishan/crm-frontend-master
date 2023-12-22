@@ -317,7 +317,7 @@ getNote: (id) => {
 },
 
 getDealNote: (id) => {
-  return api.get(`dealNotes/getDealNoteBySaleId/${id}`);
+  return api.get(`dealNotes/getDealNoteByDealId/${id}`);
 },
 
 
