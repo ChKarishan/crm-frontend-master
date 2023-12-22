@@ -29,7 +29,10 @@ import { productDetails } from "../../../common/data/ecommerce";
 import EcommerceOrderProduct from "./EcommerceOrderProduct";
 import avatar3 from "../../../assets/images/users/avatar-3.jpg";
 import API from "../../../common/data/FatchData";
+
+
 const EcommerceOrderDetail = (props) => {
+
 
   const location = useLocation()
   let navigate = useNavigate(); 
@@ -56,7 +59,6 @@ const EcommerceOrderDetail = (props) => {
     API.getDealNote(from.id).then((response) => {
 
       console.log(response.data);
-       console.log(response.data);
       setvar(response.data);
       })
       .catch((error) => {
@@ -94,13 +96,11 @@ const EcommerceOrderDetail = (props) => {
       console.log(`note is added ${response.data}`);
 
       alert('Added Note successful!');
-
-     
-      console.log(myVariable);
-      console.log(formData.noteText);
-      setvar(...myVariable,formData.noteText );
-      console.log(myVariable);
       setFormData({ ...formData, 'noteText': '' });
+      let path = `/apps-ecommerce-order-details`; 
+      navigate(path);
+      
+
      
     })
     .catch((error) => {
