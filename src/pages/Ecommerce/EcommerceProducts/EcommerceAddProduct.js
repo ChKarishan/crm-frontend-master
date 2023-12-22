@@ -59,7 +59,7 @@ const EcommerceAddProduct = (props) => {
       console.log(data);
   }, []);
 
-  const [myVariable, setvar] = useState("fsdaf");
+  const [myVariable, setvar] = useState(null);
 
   useEffect(() => {
     // Example of using the getUser function from the API file
@@ -67,8 +67,8 @@ const EcommerceAddProduct = (props) => {
     // Api call for Largest Sales
     // console.log(from.installers);
     API.getNote(from.id).then((response) => {
-       console.log(response.data);
-      setvar(response.data.note);
+       console.log(response.data.noteText);
+      setvar(response.data.noteText);
       })
       .catch((error) => {
       });
@@ -478,7 +478,7 @@ const EcommerceAddProduct = (props) => {
             </Col>
       
 
-            {myVariable && <p>Data is present: {myVariable}</p>}
+            {myVariable &&
             <Col xl={6} md={6} >
               <Card className="card-animate overflow-hidden">
                 <div
@@ -503,11 +503,11 @@ const EcommerceAddProduct = (props) => {
                   <div className="d-flex align-items-center">
                     <div className="flex-grow-1 overflow-hidden">
                       <p className="text-uppercase fw-medium text-muted text-truncate mb-3">
-                      financingDetails
+                      Note
                       </p>
                       <h4 className="fs-22 fw-semibold ff-secondary mb-0">
                         <span className="counter-value" data-target="36894">
-                          {from.financingDetails} 
+                          {myVariable} 
                         </span>
                       </h4>
                     </div>
@@ -522,6 +522,8 @@ const EcommerceAddProduct = (props) => {
                 </CardBody>
               </Card>
             </Col>
+
+            }
       
 
 
