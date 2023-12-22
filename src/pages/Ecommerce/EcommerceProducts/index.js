@@ -22,8 +22,8 @@ import { useNavigate } from "react-router-dom";
 const EcommerceProducts = (props) => {
   let navigate = useNavigate();
   const [formData, setFormData] = useState({
-    Name: '',
-    phonenumber: '',
+    name: '',
+    phoneNumber: '',
   
   });
   const [successMessage, setSuccessMessage] = useState('');
