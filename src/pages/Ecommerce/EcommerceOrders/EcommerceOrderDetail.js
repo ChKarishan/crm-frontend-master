@@ -97,8 +97,8 @@ const EcommerceOrderDetail = (props) => {
 
       alert('Added Note successful!');
       setFormData({ ...formData, 'noteText': '' });
-      let path = `/apps-ecommerce-order-details`; 
-      navigate(path);
+      // let path = `/apps-ecommerce-order-details`; 
+      // navigate(path);
       
 
      
