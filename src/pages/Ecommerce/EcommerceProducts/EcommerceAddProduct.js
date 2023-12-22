@@ -33,7 +33,7 @@ const EcommerceAddProduct = (props) => {
   const location = useLocation()
   const { from } = location.state;
 
-  console.log(`state is ${from.id}`)
+  // console.log(`state is ${from.id}`)
 
 
   const handleClick = () => {
@@ -50,7 +50,7 @@ const EcommerceAddProduct = (props) => {
     // Api call for Largest Sales
     console.log(from.installers);
     API.getListInstaller(from.installers).then((response) => {
-      console.log(response.data);
+      // console.log(response.data);
       setData(response.data.results);
       })
       .catch((error) => {
@@ -66,7 +66,10 @@ const EcommerceAddProduct = (props) => {
 
     // Api call for Largest Sales
     // console.log(from.installers);
+    console.log("resposnse data for note is ");
     API.getNote(from.id).then((response) => {
+
+      console.log(response.data);
        console.log(response.data.noteText);
       setvar(response.data.noteText);
       })
@@ -105,7 +108,7 @@ const EcommerceAddProduct = (props) => {
 
       alert('Added Note successful!');
 
-      setFormData({ ...formData, 'note': '' });
+      setFormData({ ...formData, 'noteText': '' });
      
     })
     .catch((error) => {
