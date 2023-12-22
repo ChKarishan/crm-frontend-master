@@ -98,7 +98,8 @@ const EcommerceAddProduct = (props) => {
     e.preventDefault();
     
     console.log(formData);
-    setvar(formData.noteText);
+    // setvar({ ...myVariable, 'noteText': formData.noteText });
+    // setvar(formData.noteText);
 
      
     API.postNote(formData).then((response) => {
@@ -501,14 +502,7 @@ const EcommerceAddProduct = (props) => {
 </CardHeader>
     <div className="table-responsive">
 <Table className="table-bordered border-secondary table-nowrap align-middle mb-0">
-    {/* <thead>
-        <tr>
-            <th scope="col">ID</th>
-            <th scope="col">Name</th>
-            <th scope="col">Phone</th>
-          
-        </tr>
-    </thead> */}
+   
 
     <tbody>
     {(myVariable || []).map((item, key) => (
