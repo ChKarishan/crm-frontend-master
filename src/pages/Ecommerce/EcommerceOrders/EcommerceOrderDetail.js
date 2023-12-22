@@ -95,6 +95,11 @@ const EcommerceOrderDetail = (props) => {
 
       alert('Added Note successful!');
 
+     
+      console.log(myVariable);
+      console.log(formData.noteText);
+      setvar(...myVariable,formData.noteText );
+      console.log(myVariable);
       setFormData({ ...formData, 'noteText': '' });
      
     })
