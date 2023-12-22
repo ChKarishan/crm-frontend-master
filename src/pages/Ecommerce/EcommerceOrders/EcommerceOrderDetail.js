@@ -1,15 +1,22 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useLocation } from 'react-router-dom'
 import {
   Card,
   CardBody,
   Col,
   Container,
-  Row,
-  Table,
-  Label,
   CardHeader,
-  Collapse
+  Nav,
+  NavItem,
+  NavLink,
+  Row,
+  TabContent,
+  TabPane,
+  Input,
+  Label,
+  Table,
+  FormFeedback,
+  Form,
 } from "reactstrap";
 
 import DashboardCharts from "../../DashboardJob/DashboardCharts";
@@ -21,13 +28,13 @@ import BreadCrumb from "../../../Components/Common/BreadCrumb";
 import { productDetails } from "../../../common/data/ecommerce";
 import EcommerceOrderProduct from "./EcommerceOrderProduct";
 import avatar3 from "../../../assets/images/users/avatar-3.jpg";
-
+import API from "../../../common/data/FatchData";
 const EcommerceOrderDetail = (props) => {
 
   const location = useLocation()
   let navigate = useNavigate(); 
   const { from } = location.state
-  console.log(`state is ${from.date}`)
+  console.log(from)
 
   const handleClick = () => {
     console.log("Button clinck");
@@ -35,6 +42,82 @@ const EcommerceOrderDetail = (props) => {
     let path = `/apps-crm-deals`; 
     navigate(path);
   };
+
+  // get Notes
+
+
+
+
+  const [myVariable, setvar] = useState(null);
+
+  useEffect(() => {
+  
+    // Getting Notes Api Data
+    API.getDealNote(from.id).then((response) => {
+
+      console.log(response.data);
+       console.log(response.data);
+      setvar(response.data);
+      })
+      .catch((error) => {
+      });
+
+      // console.log(data);
+  }, []);
+
+
+
+
+  
+  // Post Notes
+
+  const [formData, setFormData] = useState({
+    deal : from.id,
+    noteText: '',
+  
+  });
+
+
+
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    
+    console.log(formData);
+     
+    // Posting Notes In Data Base
+    API.postDealNote(formData).then((response) => {
+      //  setSuccessMessage(response.data.message);
+      console.log(`note is added ${response.data}`);
+
+      alert('Added Note successful!');
+
+      setFormData({ ...formData, 'noteText': '' });
+     
+    })
+    .catch((error) => {
+      alert('failed to add Note! Check console for details.');
+    });
+  };
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
   document.title = "Deal Details";
   return (
@@ -354,11 +437,106 @@ const EcommerceOrderDetail = (props) => {
     </Col>
 
 
+    {myVariable &&
+            
+
+         
+
+            <Card>
+        <CardHeader>
+                              <h3>Notes about this Sale</h3>
+                         
+                          
+        </CardHeader>
+            <div className="table-responsive">
+        <Table className="table-bordered border-secondary table-nowrap align-middle mb-0">
+           
+        
+            <tbody>
+            {(myVariable || []).map((item, key) => (
+        
+                <tr>
+                    {/* <td className="fw-medium">{key+1}</td> */}
+                    <td>{item.noteText}</td>
+                    {/* <td>{item.phoneNumber}</td> */}
+                 
+                </tr>
+        
+        
+            ))}
+        
+            
+         
+            </tbody>
+        </Table>
+        </div>
+        </Card>
+        
+        }
+
+
+
+        
+<form onSubmit={handleSubmit}>
+        <div className="mb-4">
+       
+                <Card>
+               
+
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                    Notes
+                    </Label>
+                    <Input
+                        type="text"
+                    id="noteText"
+                    name="noteText"
+                    value={formData.noteText}
+                    onChange={handleChange}
+                        />
+                   
+                  </div>
+                </CardBody>
+
+
+   
+
+
+
+                
+
+                <div className="text-center mb-3">
+                <button type="submit" className="btn btn-secondary align-bottom">
+                  Add notes
+                </button>
+                </div>
+ 
+
+      
+              </Card>
+
+
+        </div>
+      
+     
+
+      
+      
+        
+      </form>
+
+    
+
+
+
+
+{/* 
     <div>
         <Card>
         <Col>
           <div>
-            {/* <Label htmlFor="exampleFormControlTextarea5" className="form-label">Example Textarea</Label> */}
+           
             <textarea className="form-control" id="exampleFormControlTextarea5" rows="3"></textarea>
           </div>
           </Col>
@@ -368,7 +546,7 @@ const EcommerceOrderDetail = (props) => {
         </Card>
         
        
-    </div>
+    </div> */}
 
 
   

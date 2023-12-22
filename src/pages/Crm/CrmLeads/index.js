@@ -139,7 +139,8 @@ const CrmLeads = () => {
                     closedate : item.properties.closedate,
                     createdate: item.properties.createdate,
                     dealstage : item.properties.dealstage,
-                    pipeline: item.properties.pipeline
+                    pipeline: item.properties.pipeline,
+                    id : item.id
             } }}   className="text-body ">Details</Link></td>
                                            
                                     

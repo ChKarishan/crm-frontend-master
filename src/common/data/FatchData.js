@@ -306,10 +306,18 @@ postNote: ( userData) => {
   return api.post(`/saleNotes/createSaleNote`, userData);
 },
 
+postDealNote: ( userData) => {
+  return api.post(`/dealNotes/createDealNote`, userData);
+},
+
 
 
 getNote: (id) => {
   return api.get(`saleNotes/getSaleNoteBySaleId/${id}`);
+},
+
+getDealNote: (id) => {
+  return api.get(`dealNotes/getDealNoteBySaleId/${id}`);
 },
 
 

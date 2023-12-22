@@ -38,19 +38,16 @@ const EcommerceAddProduct = (props) => {
 
   const handleClick = () => {
     console.log("Button clinck");
-    // Use the history object to navigate to the other page
     let path = `/apps-ecommerce-sellers`; 
     navigate(path);
   };
+
   const [data, setData] = useState(null);
 
   useEffect(() => {
-    // Example of using the getUser function from the API file
 
-    // Api call for Largest Sales
-    console.log(from.installers);
+    // Getting Installer List 
     API.getListInstaller(from.installers).then((response) => {
-      // console.log(response.data);
       setData(response.data.results);
       })
       .catch((error) => {
@@ -59,14 +56,13 @@ const EcommerceAddProduct = (props) => {
       console.log(data);
   }, []);
 
+
+
   const [myVariable, setvar] = useState(null);
 
   useEffect(() => {
-    // Example of using the getUser function from the API file
-
-    // Api call for Largest Sales
-    // console.log(from.installers);
-    console.log("resposnse data for note is ");
+  
+    // Getting Notes Api Data
     API.getNote(from.id).then((response) => {
 
       console.log(response.data);
@@ -76,7 +72,7 @@ const EcommerceAddProduct = (props) => {
       .catch((error) => {
       });
 
-      console.log(data);
+      // console.log(data);
   }, []);
 
 
@@ -98,14 +94,11 @@ const EcommerceAddProduct = (props) => {
     e.preventDefault();
     
     console.log(formData);
-    // setvar({ ...myVariable, 'noteText': formData.noteText });
-    // setvar(formData.noteText);
-
      
+    // Posting Notes In Data Base
     API.postNote(formData).then((response) => {
       //  setSuccessMessage(response.data.message);
       console.log(`note is added ${response.data}`);
-      // setMostPannelsSold(response.data.Price);
 
       alert('Added Note successful!');
 
