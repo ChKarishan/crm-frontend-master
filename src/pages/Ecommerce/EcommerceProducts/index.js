@@ -102,9 +102,9 @@ const EcommerceProducts = (props) => {
                   </Label>
                   <Input
                     type="text"
-                      id="Name"
-                    name="Name"
-                    value={formData.Name}
+                      id="name"
+                    name="name"
+                    value={formData.name}
                   onChange={handleChange}
                      placeholder="Enter Name"
                       />
@@ -120,9 +120,9 @@ const EcommerceProducts = (props) => {
                   </Label>
                   <Input
                      type="text"
-                    id="phonenumber"
-                    name="phonenumber"
-                    value={formData.phonenumber}
+                    id="phoneNumber"
+                    name="phoneNumber"
+                    value={formData.phoneNumber}
                     onChange={handleChange}
                     placeholder="Enter Phone Number"
                       />
