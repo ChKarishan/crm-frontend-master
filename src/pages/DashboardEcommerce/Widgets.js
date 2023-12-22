@@ -71,21 +71,23 @@ const Widgets = () => {
                             {/* {(crmWidgets).map((widget, index) => ( */}
                                 <div className="col">
                                     <div className="py-4 px-3">
-                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Largest Sale<i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i></h5>
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Largest Sale
+                                        {/* <i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i> */}
+                                        </h5>
                                         <div className="d-flex align-items-center">
                                             <div className="flex-shrink-0">
-                                                <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i>
+                                                {/* <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i> */}
                                             </div>
                                             <div className="flex-grow-1 ms-3">
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
                                                         prefix={'$'}
-                                                        suffix={'%'}
+                                                        // suffix={'%'}
                                                         // separator={}
                                                         end={largestSale}
-                                                        decimals={2}
-                                                        duration={4}
+                                                        // decimals={2}
+                                                        duration={2}
                                                     />
                                                 </span></h4>
                                             </div>
@@ -95,10 +97,12 @@ const Widgets = () => {
 
                                 <div className="col">
                                     <div className="py-4 px-3">
-                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Most Referal<i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i></h5>
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Most Referal
+                                        {/* <i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i> */}
+                                        </h5>
                                         <div className="d-flex align-items-center">
                                             <div className="flex-shrink-0">
-                                                <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i>
+                                                {/* <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i> */}
                                             </div>
                                             <div className="flex-grow-1 ms-3">
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
@@ -108,8 +112,8 @@ const Widgets = () => {
                                                         // suffix={'%'}
                                                         // separator={}
                                                         end={mostReferral}
-                                                        decimals={2}
-                                                        duration={4}
+                                                        // decimals={2}
+                                                        duration={2}
                                                     />
                                                 </span></h4>
                                             </div>
@@ -119,21 +123,23 @@ const Widgets = () => {
 
                                 <div className="col">
                                     <div className="py-4 px-3">
-                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Best Door Nocker<i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i></h5>
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Best Door Nocker
+                                        {/* <i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i> */}
+                                        </h5>
                                         <div className="d-flex align-items-center">
                                             <div className="flex-shrink-0">
-                                                <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i>
+                                                {/* <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i> */}
                                             </div>
                                             <div className="flex-grow-1 ms-3">
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={'$'}
-                                                        suffix={'%'}
+                                                        // prefix={'$'}
+                                                        // suffix={'%'}
                                                         // separator={}
                                                         end={bestDoorNocker}
-                                                        decimals={2}
-                                                        duration={4}
+                                                        // decimals={2}
+                                                        duration={2}
                                                     />
                                                 </span></h4>
                                             </div>
@@ -144,21 +150,23 @@ const Widgets = () => {
 
                                 <div className="col">
                                     <div className="py-4 px-3">
-                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Best Closer<i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i></h5>
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">Best Closer
+                                        {/* <i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i> */}
+                                        </h5>
                                         <div className="d-flex align-items-center">
                                             <div className="flex-shrink-0">
-                                                <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i>
+                                                {/* <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i> */}
                                             </div>
                                             <div className="flex-grow-1 ms-3">
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={'$'}
-                                                        suffix={'%'}
+                                                        // prefix={'$'}
+                                                        // suffix={'%'}
                                                         // separator={}
                                                         end={bestCloser}
-                                                        decimals={2}
-                                                        duration={4}
+                                                        // decimals={2}
+                                                        duration={2}
                                                     />
                                                 </span></h4>
                                             </div>
@@ -168,21 +176,23 @@ const Widgets = () => {
 
                                 <div className="col">
                                     <div className="py-4 px-3">
-                                        <h5 className="text-muted text-uppercase fs-13 mb-3">most Megawatts Sold<i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i></h5>
+                                        <h5 className="text-muted text-uppercase fs-13 mb-3">most Megawatts Sold
+                                        {/* <i className={ "ri-arrow-up-circle-line text-success fs-18 float-end align-middle"}></i> */}
+                                        </h5>
                                         <div className="d-flex align-items-center">
                                             <div className="flex-shrink-0">
-                                                <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i>
+                                                {/* <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i> */}
                                             </div>
                                             <div className="flex-grow-1 ms-3">
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={''}
+                                                        // prefix={''}
                                                         suffix={'MW'}
                                                         // separator={}
                                                         end={mostMegawattsSold}
-                                                        decimals={2}
-                                                        duration={4}
+                                                        // decimals={2}
+                                                        duration={2}
                                                     />
                                                 </span></h4>
                                             </div>
@@ -194,18 +204,18 @@ const Widgets = () => {
                                         <h5 className="text-muted text-uppercase fs-13 mb-3">most Pannels Sold</h5>
                                         <div className="d-flex align-items-center">
                                             <div className="flex-shrink-0">
-                                                <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i>
+                                                {/* <i className={ "ri-exchange-dollar-line display-6 text-muted fs-3"}></i> */}
                                             </div>
                                             <div className="flex-grow-1 ms-3">
                                                 <h4 className="mb-0"><span className="counter-value" data-target="197">
                                                     <CountUp
                                                         start={0}
-                                                        prefix={''}
+                                                        // prefix={''}
                                                         suffix={'MW'}
                                                         // separator={}
                                                         end={mostPannelsSold}
-                                                        decimals={2}
-                                                        duration={4}
+                                                        // decimals={2}
+                                                        duration={2}
                                                     />
                                                 </span></h4>
                                             </div>

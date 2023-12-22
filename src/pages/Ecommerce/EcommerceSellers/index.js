@@ -122,7 +122,7 @@ const EcommerceSellers = () => {
         console.log(`Add Sales ${response.data}`);
         // setMostPannelsSold(response.data.Price);
         alert('Sales added successful!');
-        let path = `/dashboard-crm`; 
+        let path = `/apps-ecommerce-seller-details`; 
            navigate(path);
 
 
