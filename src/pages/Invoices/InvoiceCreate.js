@@ -34,7 +34,7 @@ import * as Yup from "yup";
 import { useDispatch } from "react-redux";
 import { addNewInvoice as onAddNewInvoice } from "../../slices/thunks";
 
-const InvoiceCreate = () => {
+const   InvoiceCreate = () => {
   const dispatch = useDispatch();
   const history = useNavigate();
 
@@ -1039,7 +1039,7 @@ const InvoiceCreate = () => {
                     </CardBody>
        </Card>
 
-       ))};
+       ))}
 
 
 

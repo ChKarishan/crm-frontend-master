@@ -53,6 +53,19 @@ const EcommerceOrderDetail = (props) => {
 
   const [myVariable, setvar] = useState(null);
   const [syncs, setSyncs] = useState(null);
+  const [dataa, setDataa] = useState([]);
+
+  const appendValue = () => {
+    // Replace 'newValue' with the actual value you want to append
+    setDataa((prevData) => [...prevData, newValue]);
+  };
+
+  const renderData = () => {
+    console.log(dataa);
+    return dataa.map((item, index) => (
+      <div >{item}</div>
+    ));
+  };
 
   useEffect(() => {
   
@@ -97,19 +110,18 @@ const EcommerceOrderDetail = (props) => {
       console.log(`note is added ${response.data}`);
 
       alert('Added Note successful!');
-      setSyncs(formData.noteText);
-      
-      
+      setSyncs("1");
+      setDataa((prevData) => [...prevData, formData.noteText]);
      
-      setSyncs(formData.noteText);
       setFormData({ ...formData, 'noteText': '' });
      
     })
     .catch((error) => {
       alert('failed to add Note! Check console for details.');
-      // setvar({...myVariable, 'id' : "12345678", 'deal': 'abcdef' , 'noteText' : formData.noteText, '__v':0});
-      // setFormData({ ...formData, 'noteText': '' });
-      // setSyncs(formData.noteText);
+      // setSyncs("1");
+      // setDataa((prevData) => [...prevData, formData.noteText]);
+     
+
     });
   };
 
@@ -471,13 +483,14 @@ const EcommerceOrderDetail = (props) => {
         
             ))}
 
-{syncs && 
-            <tr>
-             <td> {syncs}</td>
-            </tr>
-          }
-            
-         
+
+              {syncs && 
+              <tr>
+                <td>{renderData()}</td>
+              </tr>   
+                      } 
+
+                      
             </tbody>
         </Table>
         </div>
