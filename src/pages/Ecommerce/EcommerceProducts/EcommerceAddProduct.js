@@ -528,6 +528,19 @@ const EcommerceAddProduct = (props) => {
 
     ))}
 
+    {
+                syncs && 
+
+      
+               dataa.map((item, index) => (
+                     <tr>
+                     <td>{item}</td>
+                     </tr>
+                     ))
+
+            
+                      } 
+
     
  
     </tbody>
