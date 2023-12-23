@@ -52,6 +52,7 @@ const EcommerceOrderDetail = (props) => {
 
 
   const [myVariable, setvar] = useState(null);
+  const [syncs, setSyncs] = useState(null);
 
   useEffect(() => {
   
@@ -96,15 +97,19 @@ const EcommerceOrderDetail = (props) => {
       console.log(`note is added ${response.data}`);
 
       alert('Added Note successful!');
-      setFormData({ ...formData, 'noteText': '' });
-      // let path = `/apps-ecommerce-order-details`; 
-      // navigate(path);
+      setSyncs(formData.noteText);
       
-
+      
+     
+      setSyncs(formData.noteText);
+      setFormData({ ...formData, 'noteText': '' });
      
     })
     .catch((error) => {
       alert('failed to add Note! Check console for details.');
+      // setvar({...myVariable, 'id' : "12345678", 'deal': 'abcdef' , 'noteText' : formData.noteText, '__v':0});
+      // setFormData({ ...formData, 'noteText': '' });
+      // setSyncs(formData.noteText);
     });
   };
 
@@ -242,11 +247,7 @@ const EcommerceOrderDetail = (props) => {
                       </h4>
                     </div>
                     <div className="flex-shrink-0">
-                      {/* <DashboardCharts
-                        // seriesData={widget.series}
-                        seriesData={[95]} 
-                        colors= '#3cd188'
-                      /> */}
+                     
                     </div>
                   </div>
                 </CardBody>
@@ -442,7 +443,7 @@ const EcommerceOrderDetail = (props) => {
     </Col>
 
 
-    {myVariable &&
+    {{myVariable , syncs }&&
             
 
          
@@ -461,15 +462,20 @@ const EcommerceOrderDetail = (props) => {
             {(myVariable || []).map((item, key) => (
         
                 <tr>
-                    {/* <td className="fw-medium">{key+1}</td> */}
+                
                     <td>{item.noteText}</td>
-                    {/* <td>{item.phoneNumber}</td> */}
+                   
                  
                 </tr>
         
         
             ))}
-        
+
+{syncs && 
+            <tr>
+             <td> {syncs}</td>
+            </tr>
+          }
             
          
             </tbody>
