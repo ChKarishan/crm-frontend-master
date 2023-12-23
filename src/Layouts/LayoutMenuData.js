@@ -353,7 +353,7 @@ const Navdata = () => {
 
                 {
                     id: "appscrm",
-                    label: "CRM",
+                    label: "Deals and Contacts",
                     link: "/#",
                     isChildItem: true,
                     click: function (e) {

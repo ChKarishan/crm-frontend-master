@@ -102,7 +102,7 @@ const CrmContacts = () => {
 
 
   
-  document.title = " Create Contact | Velzon - React Admin & Dashboard Template";
+  document.title = " Create Contact | Nutkasoft - React Admin & Dashboard Template";
   return (
     <React.Fragment>
 
@@ -110,11 +110,11 @@ const CrmContacts = () => {
 
     <div className="page-content">
       <Container fluid>
-        <BreadCrumb title="Creates Contact" pageTitle="ContactsCreate" />
+        {/* <BreadCrumb title="Creates Contact" pageTitle="ContactsCreate" /> */}
         <Row>
           <Col xs={10}>
 
-            <h1> Create Contracts </h1>
+            <h1> Create New Contact </h1>
 
             <div className="max-w-md mx-auto m-4 p-6 bg-white rounded-md shadow-md">
       {/* <h2 className="text-2xl font-bold mb-4">Contracts Information</h2> */}

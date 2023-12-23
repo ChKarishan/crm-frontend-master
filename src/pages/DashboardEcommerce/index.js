@@ -15,7 +15,7 @@ import BreadCrumb from "../../Components/Common/BreadCrumb";
 
 
 const DashboardEcommerce = () => {
-  document.title = "Dashboard | Velzon - React Admin & Dashboard Template";
+  document.title = "LeaderBoard | NuktaSoft - React Admin & Dashboard Template";
 
   const [rightColumn, setRightColumn] = useState(false);
   const toggleRightColumn = () => {
@@ -27,7 +27,7 @@ const DashboardEcommerce = () => {
     <React.Fragment>
       <div className="page-content">
         <Container fluid>
-          <BreadCrumb title="LeaderBord" pageTitle="LeaderBoard" />
+          {/* <BreadCrumb title="LeaderBord" pageTitle="LeaderBoard" /> */}
           <Row>
             <Col>
               <div className="h-100">

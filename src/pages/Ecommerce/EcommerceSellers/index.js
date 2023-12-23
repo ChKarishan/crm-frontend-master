@@ -152,12 +152,12 @@ const EcommerceSellers = () => {
   
   }, [successMessage]);
 
-  document.title = "Add New Sales";
+  document.title = "Add New Sales | NuktaSoft";
   return (
     <React.Fragment>
       <div className="page-content">
       <Container fluid>
-        <BreadCrumb title="Add New Sales" pageTitle="Add New Sales" />
+        {/* <BreadCrumb title="Add New Sales" pageTitle="Add New Sales" /> */}
         <Row>
           <Col xs={12}>
 
@@ -183,7 +183,7 @@ const EcommerceSellers = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
-                    numberOfPanels
+                    Number of Panels
                     </Label>
                     <Input
                       type="text"
@@ -201,7 +201,7 @@ const EcommerceSellers = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
-                    totalWattage
+                    Total Wattage
                     </Label>
                     <Input
                        type="text"
@@ -238,7 +238,7 @@ const EcommerceSellers = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
-                    redline
+                    Redline
                     </Label>
                     <Input
                        type="text"
@@ -258,7 +258,7 @@ const EcommerceSellers = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
-                    financingDetails
+                    Financing Details
                     </Label>
                     <Input
                        type="text"
@@ -372,6 +372,7 @@ const EcommerceSellers = () => {
 
                 <h2 className="px-3 "> Add Installers</h2>
 
+      
         {(data || []).map((item, key) => (
           <div className="px-3 fs-16">
             <input
@@ -389,7 +390,6 @@ const EcommerceSellers = () => {
 
 
                 ))}
-
 
                 <div className="text-center mb-3">
                 <button type="submit" className="btn btn-secondary align-bottom">

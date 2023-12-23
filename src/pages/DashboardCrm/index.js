@@ -17,7 +17,7 @@ const DashboardCrm = () => {
         <React.Fragment>
             <div className="page-content">
                 <Container fluid>  
-                    <BreadCrumb title="CRM" pageTitle="Dashboards CRM" />
+                    {/* <BreadCrumb title="CRM"  pageTitle="Dashboards CRM" /> */}
                     <Row>
                         <Widgets />
                     </Row>

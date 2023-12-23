@@ -119,7 +119,7 @@ const InvoiceCreate = () => {
 
 
 
-  document.title = "Create Invoice | Velzon - React Admin & Dashboard Template";
+  document.title = "Referral System | Nuktasoft - React Admin & Dashboard Template";
 
   const validation = useFormik({
     enableReinitialize: true,
@@ -223,7 +223,7 @@ const InvoiceCreate = () => {
   return (
     <div className="page-content">
       <Container fluid>
-        <BreadCrumb title="Referral System" pageTitle="Referral System" />
+        {/* <BreadCrumb title="Referral System" pageTitle="Referral System" /> */}
         <Row className="justify-content-center">
           {/* <Col xxl={9}>
             <Card>

@@ -64,7 +64,7 @@ const EcommerceProducts = (props) => {
   
   }, [successMessage]);
 
-  document.title = "Add Installers";
+  document.title = "Add Installers | NuktSoft";
 
 
 
@@ -72,7 +72,7 @@ const EcommerceProducts = (props) => {
     <React.Fragment>
     <div className="page-content">
     <Container fluid>
-      <BreadCrumb title="Add Installers" pageTitle="Add Installers" />
+      {/* <BreadCrumb title="Add Installers" pageTitle="Add Installers" /> */}
       <Row>
         <Col xs={12}>
 

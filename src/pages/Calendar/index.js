@@ -74,7 +74,7 @@ const Calender = () => {
   }, [successMessage]);
 
 
-  document.title = "Add News | Velzon - React Admin & Dashboard Template";
+  document.title = "Add News | NuktaSoft - React Admin & Dashboard Template";
   return (
     <React.Fragment>
 
@@ -82,7 +82,7 @@ const Calender = () => {
 
     <div className="page-content">
       <Container fluid>
-        <BreadCrumb title="Add News" pageTitle="Add News" />
+        {/* <BreadCrumb title="Add News" pageTitle="Add News" /> */}
         <Row>
           <Col xs={10}>
 
@@ -108,7 +108,7 @@ const Calender = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
-                    heading
+                    Heading
                     </Label>
                     <Input
                       type="heading"
@@ -125,7 +125,7 @@ const Calender = () => {
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
-                    discription
+                    Discription
                     </Label>
                     <Input
                         type="text"
@@ -133,6 +133,7 @@ const Calender = () => {
                     name="discription"
                     value={formData.discription}
                     onChange={handleChange}
+                    placeholder="Enter Discription"
                         />
                    
                   </div>

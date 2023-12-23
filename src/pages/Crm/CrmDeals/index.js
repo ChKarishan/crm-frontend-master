@@ -98,7 +98,7 @@ const CrmDeals = () => {
   
   }, [successMessage]);
 
-  document.title = " Create Deals | Velzon - React Admin & Dashboard Template";
+  document.title = " Create Deals | NuktaSoft - React Admin & Dashboard Template";
 
   return (
       <React.Fragment>
@@ -107,11 +107,11 @@ const CrmDeals = () => {
 
     <div className="page-content">
       <Container fluid>
-        <BreadCrumb title="Create Deal" pageTitle="Pages" />
+        {/* <BreadCrumb title="Create Deal" pageTitle="Pages" /> */}
         <Row>
           <Col xs={12}>
 
-            <h1> Create Deal </h1>
+            <h1> Create New Deal </h1>
 
             <div className="max-w-md mx-auto m-4 p-6 bg-white rounded-md shadow-md">
       {/* <h2 className="text-2xl font-bold mb-4">Deal Information</h2> */}
@@ -174,10 +174,10 @@ const CrmDeals = () => {
                   </div>
                 </CardBody>
 
-                <CardBody>
+                {/* <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
-                     pipeline
+                     Pipeline
                     </Label>
                     <Input
                        type="text"
@@ -190,14 +190,14 @@ const CrmDeals = () => {
                         />
                    
                   </div>
-                </CardBody>
+                </CardBody> */}
 
 
                 <CardBody>
                   <div className="mb-3">
                     
                     <Label className="form-label" htmlFor="product-title-input">
-                    dealstage
+                    Dealstage
                     </Label>
                     <select
                      type="text"
@@ -207,7 +207,8 @@ const CrmDeals = () => {
                       onChange={handleChange}
                       placeholder="Enter dealstage"
                         >
-                          <option value="">Select dealstage value</option>
+                       
+                          <option value="">Select Dealstage </option>
                         <option value="appointmentscheduled">appointmentscheduled</option>
                         <option value="qualifiedtobuy">qualifiedtobuy</option>
                         <option value="presentationscheduled">presentationscheduled</option>
@@ -215,6 +216,7 @@ const CrmDeals = () => {
                         <option value="contractsent">contractsent</option>
                         <option value="closedwon">closedwon</option>
                         <option value="closedlost">closedlost</option>
+                        
                         </select>
 
 

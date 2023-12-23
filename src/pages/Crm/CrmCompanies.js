@@ -70,12 +70,12 @@ const CrmCompanies = () => {
     navigate(path);
   };
 
-  document.title = "All Contacts | Velzon - React Admin & Dashboard Template";
+  document.title = "All Contacts | NuktaSoft - React Admin & Dashboard Template";
   return (
     <React.Fragment>
     <div className="page-content">
           <Container fluid>
-            <BreadCrumb title="All Contacts" pageTitle="Pages" />
+            {/* <BreadCrumb title="All Contacts" pageTitle="Pages" /> */}
             <Row>
               <Col xs={12}>
   
