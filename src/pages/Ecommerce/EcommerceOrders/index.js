@@ -70,7 +70,7 @@ const EcommerceOrders = (props) => {
     <React.Fragment>
     <div className="page-content">
        <Container fluid>
-         <BreadCrumb title="News Details" pageTitle="News Details" /> 
+         {/* <BreadCrumb title="News Details" pageTitle="News Details" />  */}
 
 
          <Col xl={12}>

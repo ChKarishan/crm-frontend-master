@@ -33,6 +33,22 @@ const EcommerceAddProduct = (props) => {
   const location = useLocation()
   const { from } = location.state;
 
+
+  const [syncs, setSyncs] = useState(null);
+  const [dataa, setDataa] = useState([]);
+
+  const appendValue = () => {
+    // Replace 'newValue' with the actual value you want to append
+    setDataa((prevData) => [...prevData, newValue]);
+  };
+
+  const renderData = () => {
+    console.log(dataa);
+    return dataa.map((item, index) => (
+      <div >{item}</div>
+    ));
+  };
+
   // console.log(`state is ${from.id}`)
 
 
@@ -101,9 +117,11 @@ const EcommerceAddProduct = (props) => {
       console.log(`note is added ${response.data}`);
 
       alert('Added Note successful!');
-
-      setFormData({ ...formData, 'noteText': '' });
+      setSyncs("1");
+      setDataa((prevData) => [...prevData, formData.noteText]);
      
+      setFormData({ ...formData, 'noteText': '' });
+
     })
     .catch((error) => {
       alert('failed to add Note! Check console for details.');
@@ -118,7 +136,7 @@ const EcommerceAddProduct = (props) => {
 
 
 
-  document.title = "Sales Details | Velzon - React Admin & Dashboard Template";
+  document.title = "Sales Details | NuktaSoft - React Admin & Dashboard Template";
 
 
 
@@ -127,7 +145,7 @@ const EcommerceAddProduct = (props) => {
     <React.Fragment>
     <div className="page-content">
        <Container fluid>
-         <BreadCrumb title="Sales Details" pageTitle="Sales Details" /> 
+         {/* <BreadCrumb title="Sales Details" pageTitle="Sales Details" />  */}
 
 
          <Col xl={12}>

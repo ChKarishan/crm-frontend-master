@@ -118,8 +118,7 @@ const EcommerceOrderDetail = (props) => {
     })
     .catch((error) => {
       alert('failed to add Note! Check console for details.');
-      // setSyncs("1");
-      // setDataa((prevData) => [...prevData, formData.noteText]);
+   
      
 
     });
@@ -141,7 +140,7 @@ const EcommerceOrderDetail = (props) => {
 
 
 
-  document.title = "Deal Details";
+  document.title = "Deal Details | NuktaSoft";
   return (
    
 
@@ -151,7 +150,7 @@ const EcommerceOrderDetail = (props) => {
     <React.Fragment>
     <div className="page-content">
        <Container fluid>
-         <BreadCrumb title="Deal Details" pageTitle="Deal Details" /> 
+         {/* <BreadCrumb title="Deal Details" pageTitle="Deal Details" />  */}
 
 
          <Col xl={12}>
@@ -462,7 +461,7 @@ const EcommerceOrderDetail = (props) => {
 
             <Card>
         <CardHeader>
-                              <h3>Notes about this Sale</h3>
+                              <h3>Notes about this Deal</h3>
                          
                           
         </CardHeader>
@@ -484,10 +483,17 @@ const EcommerceOrderDetail = (props) => {
             ))}
 
 
-              {syncs && 
-              <tr>
-                <td>{renderData()}</td>
-              </tr>   
+              {
+                syncs && 
+
+      
+               dataa.map((item, index) => (
+                     <tr>
+                     <td>{item}</td>
+                     </tr>
+                     ))
+
+            
                       } 
 
                       
