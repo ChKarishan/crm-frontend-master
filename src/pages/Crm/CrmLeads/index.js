@@ -65,51 +65,7 @@ const CrmLeads = () => {
                             </button>
                     </CardHeader>
 
-                    {/* <CardBody>
-                        <div className="table-responsive table-card grow" >
-                        <SimpleBar style={{ maxHeight: "324px" }}>
-                            <table className="table table-borderless table-centered align-middle table-nowrap mb-0">
-                                <thead className="text-muted table-light">
-                                    <tr className="text-muted">
-                                        <th scope="col">Deal Name</th>
-                                        <th scope="col" style={{ width: "20%" }}>Amount</th>
-                                        <th scope="col" >Closing Date</th>
-                                        <th scope="col" style={{ width: "16%" }}>Creating Date</th>
-                                        <th scope="col" style={{ width: "12%" }}>Deal Stage</th>
-                                        <th scope="col" style={{ width: "12%" }}>pipeline</th>
-                                    </tr>
-                                </thead>
-                                
-                             
-                                <tbody className="overflow-auto">
-                               
-                                    {( data || []).map((item, index) => (
-
-                                        <tr key={index}>
-                                            <td>{item.properties.dealname}</td>
-                                            <td>{item.properties.amount}</td>
-                                            <td>{item.properties.closedate}</td>
-                                            <td>{item.properties.createdate}</td>
-                                            <td>{item.properties.dealstage}</td>
-                                            <td>{item.properties.pipeline}</td>
-                                        </tr>
-                                    ))}
-                                  
-                    
                    
-                                </tbody>
-                              
-                            </table>
-                            </SimpleBar>
-                        </div>
-                    </CardBody> */}
-
-{/* 
-                    <CardHeader>
-                      <h3>Installers List</h3>
-                 
-                  
-</CardHeader> */}
 
 
 <div className="table-responsive">
@@ -119,7 +75,7 @@ const CrmLeads = () => {
             <th scope="col">Deal Name</th>
             <th scope="col">Amount</th>
             <th scope="col">Dealstage</th>
-            <th scope="col">Pipeline</th>
+            {/* <th scope="col">Pipeline</th> */}
 
 
         </tr>
@@ -132,7 +88,19 @@ const CrmLeads = () => {
             <td>{item.properties.dealname}</td>
             <td>{item.properties.amount}</td>
             <td>{item.properties.dealstage}</td>
-            <td>{item.properties.pipeline}</td>
+            {/* <td>{item.properties.pipeline}</td> */}
+
+            <td>
+                                            
+                                            <Link to='/apps-projects-create' state={{ from: {dealname : item.properties.dealname ,  
+                                                    amount:  item.properties.amount,
+                                                    closedate : item.properties.closedate,
+                                                    createdate: item.properties.createdate,
+                                                    dealstage : item.properties.dealstage,
+                                                    pipeline: item.properties.pipeline,
+                                                    id : item.id
+                                            } }}   className="text-body ">Edit </Link> </td>
+
             <td>
                                             
             <Link to='/apps-ecommerce-order-details' state={{ from: {dealname : item.properties.dealname ,  
