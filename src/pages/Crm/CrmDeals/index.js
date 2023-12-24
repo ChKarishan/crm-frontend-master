@@ -29,26 +29,6 @@ const CrmDeals = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-   
-
-  //     API.postCreateDeal(formData).then((response) => {
-  //        setSuccessMessage(response.data.message);
-  //       console.log(`deal created ${response.data}`);
-
-  //       alert('Deals Created successfully!');
-  //       let path = `/dashboard-crm`; 
-  //       navigate(path);
-  //       // setMostPannelsSold(response.data.Price);
-  //     })
-  //     .catch((error) => {
-  //       alert('Error.');
-  //     });
-
-  // };
-
-
 
   const handleSubmit = (e) => {
     e.preventDefault();    

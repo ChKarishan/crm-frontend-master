@@ -1,8 +1,8 @@
 import axios from 'axios';
 
-const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
+// const BASE_URL = 'https://crm-backend-karishan-mehmoods-projects.vercel.app';
 
-// const BASE_URL ="http://localhost:3002";
+const BASE_URL ="http://localhost:3002";
 
 // Your API base URL
 
@@ -133,7 +133,7 @@ const API = {
   
 
   putUpdateDeal: (userId, userData) => {
-    return api.put(`/updateDeal/${userId}`, userData);
+    return api.put(`/deals/updateDeal/${userId}`, userData);
   },
 
   getannualdeals: () => {

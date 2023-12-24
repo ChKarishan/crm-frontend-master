@@ -42,7 +42,7 @@ const EcommerceOrderDetail = (props) => {
   const handleClick = () => {
     console.log("Button clinck");
     // Use the history object to navigate to the other page
-    let path = `/apps-crm-deals`; 
+    let path = `/apps-projects-create`; 
     navigate(path);
   };
 
@@ -159,11 +159,21 @@ const EcommerceOrderDetail = (props) => {
                   
                         <h4 className="card-title mb-0 flex-grow-1 text-white">Deals Details</h4>
                         <div className="flex-shrink-0">
-                            <button type="button" onClick={handleClick} className="btn btn-soft-secondary btn-sm">
+                        <Link to='/apps-projects-create' state={{ from: {dealname : from.dealname ,  
+                    amount:  from.amount,
+                    closedate : from.closedate,
+                    createdate: from.createdate,
+                    dealstage : from.dealstage,
+                    pipeline: from.pipeline,
+                    id : from.id
+            } }}   className="text-body "> 
+            <button type="button" className="btn btn-soft-secondary btn-sm">
 
-                            Add New Deal
-                                
-                            </button>
+Edit
+    
+</button>
+</Link>
+                            
                         </div>
                     </CardHeader>
 

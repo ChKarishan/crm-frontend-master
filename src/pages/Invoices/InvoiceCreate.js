@@ -253,7 +253,7 @@ const   InvoiceCreate = () => {
     
       <Card className="card-animate">
       <CardHeader className="align-items-center d-flex bg-secondary ">             
-                  <h4 className="card-title mb-0 flex-grow-1 text-white">children</h4>      
+                  <h4 className="card-title mb-0 flex-grow-1 text-white">Referring Persons List</h4>      
               </CardHeader>
               {(data || []).map((item, key) => ( 
                     <CardBody>
@@ -297,7 +297,7 @@ const   InvoiceCreate = () => {
 
       <Card className="card-animate">
       <CardHeader className="align-items-center d-flex bg-secondary ">             
-                  <h4 className="card-title mb-0 flex-grow-1 text-white">Parent</h4>      
+                  <h4 className="card-title mb-0 flex-grow-1 text-white">Referral Persons</h4>      
               </CardHeader>
 
               { parent && 

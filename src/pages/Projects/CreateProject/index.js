@@ -1,4 +1,4 @@
-import React,{useState} from 'react';
+import React, { useState, useEffect } from "react";
 import { Link } from 'react-router-dom';
 import { Card, CardBody, CardHeader, Col, Container, Input, Label, Row } from 'reactstrap';
 import BreadCrumb from '../../../Components/Common/BreadCrumb';
@@ -13,296 +13,237 @@ import Dropzone from "react-dropzone";
 //Import Images
 import avatar3 from "../../../assets/images/users/avatar-3.jpg";
 import avatar4 from "../../../assets/images/users/avatar-4.jpg";
-
-const CreateProject = () => {
-    const SingleOptions = [
-        { value: 'Watches', label: 'Watches' },
-        { value: 'Headset', label: 'Headset' },
-        { value: 'Sweatshirt', label: 'Sweatshirt' },
-        { value: '20% off', label: '20% off' },
-        { value: '4 star', label: '4 star' },
-      ];
-
-    const [selectedMulti, setselectedMulti] = useState(null);
-
-    const handleMulti = (selectedMulti) => {
-    setselectedMulti(selectedMulti);
-    }  
+import { useNavigate } from "react-router-dom";
+import API from '../../../common/data/FatchData';
+import { useLocation } from 'react-router-dom'
+const CreateProject = (props) => {
+   
     
-    //Dropzone file upload
-    const [selectedFiles, setselectedFiles] = useState([]);
+    const location = useLocation();
+    const { from } = location.state;
+    console.log(from);
+
+    let navigate = useNavigate();
+    const [formData, setFormData] = useState({
+      amount: from.amount,
+      closedate: from.closedate,
+      dealname: from.dealname,
+      pipeline : from.pipeline,
+      dealstage: from.dealstage,
+    });
+    const [successMessage, setSuccessMessage] = useState('');
   
-    const handleAcceptedFiles = (files) => {
-      files.map(file =>
-        Object.assign(file, {
-          preview: URL.createObjectURL(file),
-          formattedSize: formatBytes(file.size),
-        })
-      );
-      setselectedFiles(files);
-    }
-
-        /**
-     * Formats the size
-     */
-    const formatBytes = (bytes, decimals = 2) => {
-        if (bytes === 0) return "0 Bytes";
-        const k = 1024;
-        const dm = decimals < 0 ? 0 : decimals;
-        const sizes = ["Bytes", "KB", "MB", "GB", "TB", "PB", "EB", "ZB", "YB"];
-
-        const i = Math.floor(Math.log(bytes) / Math.log(k));
-        return parseFloat((bytes / Math.pow(k, i)).toFixed(dm)) + " " + sizes[i];
-    }
-
-document.title="Create Project | Velzon - React Admin & Dashboard Template";
-
+    const handleChange = (e) => {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    };
+  
+  
+    const handleSubmit = (e) => {
+      e.preventDefault();    
+        API.putUpdateDeal(from.id, formData ).then((response) => {
+           setSuccessMessage(response.data.message);
+           console.log(successMessage);
+          console.log(`Deal Updated  ${response.data}`);
+          
+          alert('Deal Updated successful! ');
+          let path = `/apps-crm-leads`; 
+             navigate(path);
+        }).catch((error) => {
+            alert('Error in Deal Updating! Check your Console');
+        });
+        
+  
+       
+  
+  
+    
+        console.log(successMessage);
+  
+  
+  
+  
+    };
+  
+  
+  
+  
+  
+    useEffect(() => {
+      if (successMessage) {
+        const timeout = setTimeout(() => {
+          setSuccessMessage('');
+          setFormData({
+            amount: "",
+            closedate: "",
+            dealname: "",
+            pipeline : "",
+            dealstage: ""
+          });
+   
+        }, 15000); // Display success message for 3 seconds
+        return () => clearTimeout(timeout);
+      }
+    
+    }, [successMessage]);
+  
+    document.title = " Edit Deals | NuktaSoft - React Admin & Dashboard Template";
     return (
         <React.Fragment>
             <div className="page-content">
-                <Container fluid>
-                    <BreadCrumb title="Create Project" pageTitle="Projects" />
-                    <Row>
-                        <Col lg={8}>
-                            <Card>
-                                <CardBody>
-                                    <div className="mb-3">
-                                        <Label className="form-label" htmlFor="project-title-input">Project Title</Label>
-                                        <Input type="text" className="form-control" id="project-title-input"
-                                            placeholder="Enter project title" />
-                                    </div>
+            <Container fluid>
+        {/* <BreadCrumb title="Create Deal" pageTitle="Pages" /> */}
+        <Row>
+          <Col xs={12}>
 
-                                    <div className="mb-3">
-                                        <Label className="form-label" htmlFor="project-thumbnail-img">Thumbnail Image</Label>
-                                        <Input className="form-control" id="project-thumbnail-img" type="file" accept="image/png, image/gif, image/jpeg" />
-                                    </div>
+            <h1> Edit Deal </h1>
 
-                                    <div className="mb-3">
-                                        <Label className="form-label">Project Description</Label>
-                                        <CKEditor
-                                            editor={ClassicEditor}
-                                            data="<p>Hello from CKEditor 5!</p>"
-                                            onReady={(editor) => {
-                                                // You can store the "editor" and use when it is needed.
-                                                
-                                            }}
-                                            // onChange={(editor) => {
-                                            //     editor.getData();
-                                            // }}
-                                            />
-                                    </div>
+            <div className="max-w-md mx-auto m-4 p-6 bg-white rounded-md shadow-md">
+      {/* <h2 className="text-2xl font-bold mb-4">Deal Information</h2> */}
 
-                                    <Row>
-                                        <Col lg={4}>
-                                            <div className="mb-3 mb-lg-0">
-                                                <Label htmlFor="choices-priority-input" className="form-label">Priority</Label>
-                                                <select className="form-select" data-choices data-choices-search-false
-                                                    id="choices-priority-input">
-                                                    <option defaultValue="High">High</option>
-                                                    <option value="Medium">Medium</option>
-                                                    <option value="Low">Low</option>
-                                                </select>
-                                            </div>
-                                        </Col>
-                                        <Col lg={4}>
-                                            <div className="mb-3 mb-lg-0">
-                                                <Label htmlFor="choices-status-input" className="form-label">Status</Label>
-                                                <select className="form-select" data-choices data-choices-search-false
-                                                    id="choices-status-input">
-                                                    <option defaultValue="Inprogress">Inprogress</option>
-                                                    <option value="Completed">Completed</option>
-                                                </select>
-                                            </div>
-                                        </Col>
-                                        <Col lg={4}>
-                                            <div>
-                                                <Label htmlFor="datepicker-deadline-input" className="form-label">Deadline</Label>
-                                                <Flatpickr
-                                                    className="form-control"
-                                                    options={{
-                                                    dateFormat: "d M, Y"
-                                                    }}
-                                                    placeholder="Selact Date"
-                                                />
-                                            </div>
-                                        </Col>
-                                    </Row>
-                                </CardBody>
-                            </Card>
-                            <Card>
-                                <CardHeader >
-                                    <h5 className="card-title mb-0">Attached files</h5>
-                                </CardHeader>
-                                <CardBody>
-                                    <div>
-                                        <p className="text-muted">Add Attached files here.</p>
 
-                                        <Dropzone
-                                            onDrop={acceptedFiles => {
-                                            handleAcceptedFiles(acceptedFiles);
-                                            }}
-                                        >
-                                            {({ getRootProps, getInputProps }) => (
-                                            <div className="dropzone dz-clickable">
-                                                <div
-                                                className="dz-message needsclick"
-                                                {...getRootProps()}
-                                                >
-                                                <div className="mb-3">
-                                                    <i className="display-4 text-muted ri-upload-cloud-2-fill" />
-                                                </div>
-                                                <h4>Drop files here or click to upload.</h4>
-                                                </div>
-                                            </div>
-                                            )}
-                                        </Dropzone>
 
-                                        <ul className="list-unstyled mb-0" id="dropzone-preview">
-                                        
-                                        {selectedFiles.map((f, i) => {
-                                            return (
-                                                <Card
-                                                className="mt-1 mb-0 shadow-none border dz-processing dz-image-preview dz-success dz-complete"
-                                                key={i + "-file"}
-                                                >
-                                                <div className="p-2">
-                                                    <Row className="align-items-center">
-                                                    <Col className="col-auto">
-                                                        <img
-                                                        data-dz-thumbnail=""
-                                                        height="80"
-                                                        className="avatar-sm rounded bg-light"
-                                                        alt={f.name}
-                                                        src={f.preview}
-                                                        />
-                                                    </Col>
-                                                    <Col>
-                                                        <Link
-                                                        to="#"
-                                                        className="text-muted font-weight-bold"
-                                                        >
-                                                        {f.name}
-                                                        </Link>
-                                                        <p className="mb-0">
-                                                        <strong>{f.formattedSize}</strong>
-                                                        </p>
-                                                    </Col>
-                                                    </Row>
-                                                </div>
-                                                </Card>
-                                            );
-                                            })}
-                                        </ul>
 
-                                    </div>
-                                </CardBody>
-                            </Card>
+      <form onSubmit={handleSubmit}>
+        <div className="mb-4">
+       
+                <Card>
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                      Amount
+                    </Label>
+                    <Input
+                      type="text"
+                        id="amount"
+                      name="amount"
+                      value={formData.amount}
+                    onChange={handleChange}
+                       placeholder="Enter Amount"
+                        />
+                   
+                  </div>
+                </CardBody>
 
-                            <div className="text-end mb-4">
-                                <button type="submit" className="btn btn-danger w-sm me-1">Delete</button>
-                                <button type="submit" className="btn btn-secondary w-sm me-1">Draft</button>
-                                <button type="submit" className="btn btn-success w-sm">Create</button>
-                            </div>
-                        </Col>
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                    Close Date
+                    </Label>
+                    <Input
+                        type="date"
+                    id="closedate"
+                    name="closedate"
+                    value={formData.closedate}
+                    onChange={handleChange}
+                        />
+                   
+                  </div>
+                </CardBody>
 
-                        <Col lg={4}>
-                            <div className="card">
-                                <div className="card-header">
-                                    <h5 className="card-title mb-0">Privacy</h5>
-                                </div>
-                                <CardBody>
-                                    <div>
-                                        <Label htmlFor="choices-privacy-status-input" className="form-label">Status</Label>
-                                        <select className="form-select" data-choices data-choices-search-false
-                                            id="choices-privacy-status-input">
-                                            <option defaultValue="Private">Private</option>
-                                            <option value="Team">Team</option>
-                                            <option value="Public">Public</option>
-                                        </select>
-                                    </div>
-                                </CardBody>
-                            </div>
 
-                            <div className="card">
-                                <div className="card-header">
-                                    <h5 className="card-title mb-0">Tags</h5>
-                                </div>
-                                <CardBody>
-                                    <div className="mb-3">
-                                        <Label htmlFor="choices-categories-input" className="form-label">Categories</Label>
-                                        <select className="form-select" data-choices data-choices-search-false
-                                            id="choices-categories-input">
-                                            <option defaultValue="Designing">Designing</option>
-                                            <option value="Development">Development</option>
-                                        </select>
-                                    </div>
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                     Deal Name
+                    </Label>
+                    <Input
+                       type="text"
+                      id="dealname"
+                      name="dealname"
+                      value={formData.dealname}
+                      onChange={handleChange}
+                      placeholder="Enter Deal Name"
+                        />
+                   
+                  </div>
+                </CardBody>
 
-                                    <div>
-                                        <Label htmlFor="choices-text-input" className="form-label">Skills</Label>
-                                        <Select
-                                            value={selectedMulti}
-                                            isMulti={true}                                                            
-                                            onChange={() => {
-                                                handleMulti();
-                                            }}
-                                            options={SingleOptions}
-                                        />
-                                    </div>
-                                </CardBody>
-                            </div>
+                {/* <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                     Pipeline
+                    </Label>
+                    <Input
+                       type="text"
+                      id="pipline"
+                      name="pipeline"
+                      // value={formData.pipeline}
+                      value ={"default "}
+                      onChange={handleChange}
+                      placeholder="Enter pipeline"
+                        />
+                   
+                  </div>
+                </CardBody> */}
 
-                            <Card>
-                                <CardHeader>
-                                    <h5 className="card-title mb-0">Members</h5>
-                                </CardHeader>
-                                <CardBody>
-                                    <div className="mb-3">
-                                        <Label htmlFor="choices-lead-input" className="form-label">Team Lead</Label>
-                                        <select className="form-select" data-choices data-choices-search-false
-                                            id="choices-lead-input">
-                                            <option defaultValue="Brent Gonzalez">Brent Gonzalez</option>
-                                            <option value="Darline Williams">Darline Williams</option>
-                                            <option value="Sylvia Wright">Sylvia Wright</option>
-                                            <option value="Ellen Smith">Ellen Smith</option>
-                                            <option value="Jeffrey Salazar">Jeffrey Salazar</option>
-                                            <option value="Mark Williams">Mark Williams</option>
-                                        </select>
-                                    </div>
 
-                                    <div>
-                                        <Label className="form-label">Team Members</Label>
-                                        <div className="avatar-group">
-                                            <Link to="#" className="avatar-group-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Brent Gonzalez">
-                                                <div className="avatar-xs">
-                                                    <img src={avatar3} alt="" className="rounded-circle img-fluid" />
-                                                </div>
-                                            </Link>
-                                            <Link to="#" className="avatar-group-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Sylvia Wright">
-                                                <div className="avatar-xs">
-                                                    <div className="avatar-title rounded-circle bg-secondary">
-                                                        S
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                            <Link to="#" className="avatar-group-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Ellen Smith">
-                                                <div className="avatar-xs">
-                                                    <img src={avatar4} alt="" className="rounded-circle img-fluid" />
-                                                </div>
-                                            </Link>
-                                            <Link to="#" className="avatar-group-item" data-bs-toggle="tooltip" data-bs-trigger="hover" data-bs-placement="top" title="Add Members">
-                                                <div className="avatar-xs" data-bs-toggle="modal" data-bs-target="#inviteMembersModal">
-                                                    <div className="avatar-title fs-16 rounded-circle bg-light border-dashed border text-primary">
-                                                        +
-                                                    </div>
-                                                </div>
-                                            </Link>
-                                        </div>
-                                    </div>
-                                </CardBody>
-                            </Card>
-                        </Col>
-                    </Row>
-                </Container>
+                <CardBody>
+                  <div className="mb-3">
+                    
+                    <Label className="form-label" htmlFor="product-title-input">
+                    Dealstage
+                    </Label>
+                    <select
+                     type="text"
+                     id="dealstage"
+                      name="dealstage"
+                      value={formData.dealstage}
+                      onChange={handleChange}
+                      placeholder="Enter dealstage"
+                        >
+                       
+                          <option value="">Select Dealstage </option>
+                        <option value="appointmentscheduled">appointmentscheduled</option>
+                        <option value="qualifiedtobuy">qualifiedtobuy</option>
+                        <option value="presentationscheduled">presentationscheduled</option>
+                        <option value="decisionmakerboughtin">decisionmakerboughtin</option>
+                        <option value="contractsent">contractsent</option>
+                        <option value="closedwon">closedwon</option>
+                        <option value="closedlost">closedlost</option>
+                        
+                        </select>
+
+
+                   
+                  </div>
+                </CardBody>
+
+
+
+
+             
+
+        {successMessage && (
+              <div className="bg-green-200 text-green-800 p-3 rounded-md mb-4">
+              {successMessage}
+              </div>
+        )} 
+
+                <div className="text-center mb-3">
+                <button type="submit" className="btn btn-secondary align-bottom">
+                  Submit
+                </button>
+                </div>
+
+
+      
+              </Card>
+
+
+        </div>
+      
+   
+
+      
+        
+      </form>
+    </div>
+
+
+
+          </Col>
+        </Row>
+      </Container>
             </div>
         </React.Fragment>
     );
