@@ -75,6 +75,8 @@ const CrmLeads = () => {
             <th scope="col">Deal Name</th>
             <th scope="col">Amount</th>
             <th scope="col">Dealstage</th>
+            <th scope="col">Pannels Size</th>
+            <th scope="col">Address</th>
             {/* <th scope="col">Pipeline</th> */}
 
 
@@ -88,7 +90,9 @@ const CrmLeads = () => {
             <td>{item.properties.dealname}</td>
             <td>{item.properties.amount}</td>
             <td>{item.properties.dealstage}</td>
-            {/* <td>{item.properties.pipeline}</td> */}
+            
+            <td>{item.properties.sizeofpannals}</td>
+            <td>{item.properties.address}</td>
 
             <td>
                                             
@@ -98,6 +102,8 @@ const CrmLeads = () => {
                                                     createdate: item.properties.createdate,
                                                     dealstage : item.properties.dealstage,
                                                     pipeline: item.properties.pipeline,
+                                                    address : item.properties.address,
+                                                    sizeofpannals : item.properties.sizeofpannals,
                                                     id : item.id
                                             } }}   className="text-body ">Edit </Link> </td>
 
@@ -109,6 +115,8 @@ const CrmLeads = () => {
                     createdate: item.properties.createdate,
                     dealstage : item.properties.dealstage,
                     pipeline: item.properties.pipeline,
+                    address : item.properties.address,
+                    sizeofpannals : item.properties.sizeofpannals,
                     id : item.id
             } }}   className="text-body ">Details</Link></td>
                                            

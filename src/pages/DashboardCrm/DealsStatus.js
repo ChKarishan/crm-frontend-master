@@ -84,6 +84,8 @@ const DealsStatus = () => {
                                         createdate: item.properties.createdate,
                                         dealstage : item.properties.dealstage,
                                         pipeline: item.properties.pipeline,
+                                        address: item.properties.address,
+                                        sizeofpannels: item.properties.sizeofpannels,
                                         id : item.id
                                         
                                         
@@ -131,7 +133,7 @@ const DealsStatus = () => {
                                                     />
                                                 </span>))} */}
                                             
-                                            <span className={"fs-12 badge bg-danger-subtle text-danger"}><i className={"fs-13 align-middle me-1 ri-arrow-down-s-line"}></i>233</span>
+                                            <span className={"fs-12 badge bg-danger-subtle text-danger"}>{item.properties.sizeofpannels}</span>
                                         </div>
                                         <p className="text-muted text-truncate mb-0">{item.properties.dealstage}</p>
                                     </div>

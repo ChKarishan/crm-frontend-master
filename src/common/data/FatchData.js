@@ -280,6 +280,11 @@ const API = {
     // All installers Api
 
     // Getting all Installers
+
+    postSaveLocation: (id) => {
+      return api.post(`installer/savelocation`, id);
+    },
+
   getAllInstaller: () => {
     return api.get(`/installer/getAll`);
   },
@@ -301,6 +306,9 @@ const API = {
 
 
 
+
+
+
 // add Note Api Routes
 postNote: ( userData) => {
   return api.post(`/saleNotes/createSaleNote`, userData);
@@ -309,6 +317,15 @@ postNote: ( userData) => {
 postDealNote: ( userData) => {
   return api.post(`/dealNotes/createDealNote`, userData);
 },
+
+
+
+
+
+
+
+
+
 
 
 

@@ -21,6 +21,8 @@ const CrmDeals = () => {
     closedate: '',
     dealname: '',
     pipeline : '',
+    sizeofpannals: "",
+    address : "",
     dealstage: '',
   });
   const [successMessage, setSuccessMessage] = useState('');
@@ -31,7 +33,8 @@ const CrmDeals = () => {
 
 
   const handleSubmit = (e) => {
-    e.preventDefault();    
+    e.preventDefault();  
+    console.log(formData);  
       API.postCreateDeal(formData).then((response) => {
          setSuccessMessage(response.data.message);
          console.log(successMessage);
@@ -137,6 +140,7 @@ const CrmDeals = () => {
                 </CardBody>
 
 
+
                 <CardBody>
                   <div className="mb-3">
                     <Label className="form-label" htmlFor="product-title-input">
@@ -149,6 +153,41 @@ const CrmDeals = () => {
                       value={formData.dealname}
                       onChange={handleChange}
                       placeholder="Enter Deal Name"
+                        />
+                   
+                  </div>
+                </CardBody>
+                
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                     Size of Pannals
+                    </Label>
+                    <Input
+                       type="text"
+                      id="sizeofpannals"
+                      name="sizeofpannals"
+                      value={formData.sizeofpannals}
+                      onChange={handleChange}
+                      placeholder="Enter Size Of Pannals"
+                        />
+                   
+                  </div>
+                </CardBody>
+
+
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                     Client Address
+                    </Label>
+                    <Input
+                       type="text"
+                      id="address"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      placeholder="Enter Client Address"
                         />
                    
                   </div>

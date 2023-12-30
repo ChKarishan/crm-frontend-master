@@ -30,6 +30,8 @@ const CreateProject = (props) => {
       dealname: from.dealname,
       pipeline : from.pipeline,
       dealstage: from.dealstage,
+      sizeofpannels: from.sizeofpannels,
+      address : from.address
     });
     const [successMessage, setSuccessMessage] = useState('');
   
@@ -153,6 +155,42 @@ const CreateProject = (props) => {
                       value={formData.dealname}
                       onChange={handleChange}
                       placeholder="Enter Deal Name"
+                        />
+                   
+                  </div>
+                </CardBody>
+
+
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                     Size of Pannals
+                    </Label>
+                    <Input
+                       type="text"
+                      id="sizeofpannals"
+                      name="sizeofpannals"
+                      value={formData.sizeofpannals}
+                      onChange={handleChange}
+                      placeholder="Enter Size Of Pannals"
+                        />
+                   
+                  </div>
+                </CardBody>
+
+
+                <CardBody>
+                  <div className="mb-3">
+                    <Label className="form-label" htmlFor="product-title-input">
+                     Client Address
+                    </Label>
+                    <Input
+                       type="text"
+                      id="address"
+                      name="address"
+                      value={formData.address}
+                      onChange={handleChange}
+                      placeholder="Enter Client Address"
                         />
                    
                   </div>
