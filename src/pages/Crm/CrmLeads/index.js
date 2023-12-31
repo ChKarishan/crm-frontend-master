@@ -104,7 +104,7 @@ const CrmLeads = () => {
                                                     pipeline: item.pipeline,
                                                     address : item.address,
                                                     sizeofpannals : item.sizeofpannals,
-                                                    id : item._id
+                                                    id : item.dealId
                                             } }}   className="text-body ">Edit </Link> </td>
 
             <td>
@@ -117,7 +117,7 @@ const CrmLeads = () => {
                     pipeline: item.pipeline,
                     address : item.address,
                     sizeofpannals : item.sizeofpannals,
-                    id : item._id
+                    id : item.dealId
             } }}   className="text-body ">Details</Link></td>
                                            
                                     
