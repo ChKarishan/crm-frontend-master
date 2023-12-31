@@ -166,7 +166,7 @@ const EcommerceOrderDetail = (props) => {
                     dealstage : from.dealstage,
                     pipeline: from.pipeline,
                     address : from.address,
-                    sizeofpannels : from.sizeofpannals,
+                    sizeofpannals : from.sizeofpannals,
                     id : from.id
             } }}   className="text-body "> 
             <button type="button" className="btn btn-soft-secondary btn-sm">

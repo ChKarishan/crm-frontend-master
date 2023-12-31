@@ -42,7 +42,7 @@ const CreateProject = (props) => {
   
     const handleSubmit = (e) => {
       e.preventDefault();    
-        API.putUpdateDeal(from.id, formData ).then((response) => {
+        API.putUpdateDeal(from.id , formData ).then((response) => {
            setSuccessMessage(response.data.message);
            console.log(successMessage);
           console.log(`Deal Updated  ${response.data}`);

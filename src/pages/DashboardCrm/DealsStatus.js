@@ -86,7 +86,7 @@ const DealsStatus = () => {
                                         pipeline: item.pipeline,
                                         address: item.address,
                                         sizeofpannals: item.sizeofpannals,
-                                        id : item._id
+                                        id : item.dealId
                                         
                                         
                                         
