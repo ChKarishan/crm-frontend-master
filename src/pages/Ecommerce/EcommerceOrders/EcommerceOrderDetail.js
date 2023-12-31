@@ -166,7 +166,7 @@ const EcommerceOrderDetail = (props) => {
                     dealstage : from.dealstage,
                     pipeline: from.pipeline,
                     address : from.address,
-                    sizeofpannels : from.sizeofpannels,
+                    sizeofpannels : from.sizeofpannals,
                     id : from.id
             } }}   className="text-body "> 
             <button type="button" className="btn btn-soft-secondary btn-sm">
@@ -433,7 +433,7 @@ Edit
                       </p>
                       <h4 className="fs-22 fw-semibold ff-secondary mb-0">
                         <span className="counter-value" data-target="36894">
-                          {from.sizeofpannels}
+                          {from.sizeofpannals}
                         </span>
                       </h4>
                     </div>
