@@ -109,8 +109,12 @@ const API = {
 
   // viewing all deals
   getAllDealsFormHubsport : (userId) =>{
-    return api.get('/deals/getAllDealsFromHubspot');
+    return api.get('/deals/getDeals');
   },
+
+  // getAllDealsFormHubsport : (userId) =>{
+  //   return api.get('/deals/getAllDealsFromHubspot');
+  // },
 
 
   // view a single deal
