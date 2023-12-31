@@ -28,9 +28,9 @@ const CreateProject = (props) => {
       amount: from.amount,
       closedate: from.closedate,
       dealname: from.dealname,
-      pipeline : from.pipeline,
+      pipeline : "Default",
       dealstage: from.dealstage,
-      sizeofpannels: from.sizeofpannels,
+      sizeofpannals: from.sizeofpannals,
       address : from.address
     });
     const [successMessage, setSuccessMessage] = useState('');

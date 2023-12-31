@@ -321,7 +321,7 @@ Edit
             </Col>
 
 
-            <Col xl={6} md={6} >
+            {/* <Col xl={6} md={6} >
               <Card className="card-animate overflow-hidden">
                 <div
                   className="position-absolute start-0"
@@ -354,16 +354,12 @@ Edit
                       </h4>
                     </div>
                     <div className="flex-shrink-0">
-                      {/* <DashboardCharts
-                        // seriesData={widget.series}
-                        seriesData={[95]} 
-                        colors= '#3cd188'
-                      /> */}
+                   
                     </div>
                   </div>
                 </CardBody>
               </Card>
-            </Col>
+            </Col> */}
 
             <Col xl={6} md={6} >
               <Card className="card-animate overflow-hidden">
@@ -492,7 +488,7 @@ Edit
             </Col>
 
 
-            <Col xl={6} md={6} >
+            {/* <Col xl={6} md={6} >
               <Card className="card-animate overflow-hidden">
                 <div
                   className="position-absolute start-0"
@@ -525,16 +521,12 @@ Edit
                       </h4>
                     </div>
                     <div className="flex-shrink-0">
-                      {/* <DashboardCharts
-                        // seriesData={widget.series}
-                        seriesData={[95]} 
-                        colors= '#FF9882'
-                      /> */}
+                     
                     </div>
                   </div>
                 </CardBody>
               </Card>
-            </Col>
+            </Col> */}
       
         </Row>
         

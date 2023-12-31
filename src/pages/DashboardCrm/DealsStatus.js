@@ -85,8 +85,8 @@ const DealsStatus = () => {
                                         dealstage : item.dealstage,
                                         pipeline: item.pipeline,
                                         address: item.address,
-                                        sizeofpannels: item.sizeofpannels,
-                                        id : item.id
+                                        sizeofpannals: item.sizeofpannals,
+                                        id : item._id
                                         
                                         
                                         
