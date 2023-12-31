@@ -87,36 +87,36 @@ const CrmLeads = () => {
 
         <tr>
             
-            <td>{item.properties.dealname}</td>
-            <td>{item.properties.amount}</td>
-            <td>{item.properties.dealstage}</td>
+            <td>{item.dealname}</td>
+            <td>{item.amount}</td>
+            <td>{item.dealstage}</td>
             
-            <td>{item.properties.sizeofpannals}</td>
-            <td>{item.properties.address}</td>
+            <td>{item.sizeofpannals}</td>
+            <td>{item.address}</td>
 
             <td>
                                             
-                                            <Link to='/apps-projects-create' state={{ from: {dealname : item.properties.dealname ,  
-                                                    amount:  item.properties.amount,
-                                                    closedate : item.properties.closedate,
-                                                    createdate: item.properties.createdate,
-                                                    dealstage : item.properties.dealstage,
-                                                    pipeline: item.properties.pipeline,
-                                                    address : item.properties.address,
-                                                    sizeofpannals : item.properties.sizeofpannals,
+                                            <Link to='/apps-projects-create' state={{ from: {dealname : item.dealname ,  
+                                                    amount:  item.amount,
+                                                    closedate : item.closedate,
+                                                    createdate: item.createdate,
+                                                    dealstage : item.dealstage,
+                                                    pipeline: item.pipeline,
+                                                    address : item.address,
+                                                    sizeofpannals : item.sizeofpannals,
                                                     id : item.id
                                             } }}   className="text-body ">Edit </Link> </td>
 
             <td>
                                             
-            <Link to='/apps-ecommerce-order-details' state={{ from: {dealname : item.properties.dealname ,  
-                    amount:  item.properties.amount,
-                    closedate : item.properties.closedate,
-                    createdate: item.properties.createdate,
-                    dealstage : item.properties.dealstage,
-                    pipeline: item.properties.pipeline,
-                    address : item.properties.address,
-                    sizeofpannals : item.properties.sizeofpannals,
+            <Link to='/apps-ecommerce-order-details' state={{ from: {dealname : item.dealname ,  
+                    amount:  item.amount,
+                    closedate : item.closedate,
+                    createdate: item.createdate,
+                    dealstage : item.dealstage,
+                    pipeline: item.pipeline,
+                    address : item.address,
+                    sizeofpannals : item.sizeofpannals,
                     id : item.id
             } }}   className="text-body ">Details</Link></td>
                                            
