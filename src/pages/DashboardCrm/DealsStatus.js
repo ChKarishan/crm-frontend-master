@@ -78,14 +78,14 @@ const DealsStatus = () => {
             {(data || []).map((item, key) => (
             <Col xl={4} key={3}>
 
-            <Link to='/apps-ecommerce-order-details' state={{ from: {dealname : item.properties.dealname ,  
-                                        amount:  item.properties.amount,
-                                        closedate : item.properties.closedate,
-                                        createdate: item.properties.createdate,
-                                        dealstage : item.properties.dealstage,
-                                        pipeline: item.properties.pipeline,
-                                        address: item.properties.address,
-                                        sizeofpannels: item.properties.sizeofpannels,
+            <Link to='/apps-ecommerce-order-details' state={{ from: {dealname : item.dealname ,  
+                                        amount:  item.amount,
+                                        closedate : item.closedate,
+                                        createdate: item.createdate,
+                                        dealstage : item.dealstage,
+                                        pipeline: item.pipeline,
+                                        address: item.address,
+                                        sizeofpannels: item.sizeofpannels,
                                         id : item.id
                                         
                                         
@@ -109,7 +109,7 @@ const DealsStatus = () => {
                                     </div>
                                    
                                     <div className="flex-grow-1 overflow-hidden ms-3">
-                                        <p className="text-uppercase fw-medium text-muted text-truncate mb-3">{item.properties.dealname}</p>
+                                        <p className="text-uppercase fw-medium text-muted text-truncate mb-3">{item.dealname}</p>
                                         <div className="d-flex align-items-center mb-3">
                                         <h4 className="mb-0"> <span className="counter-value" data-target="197">
                                                     <CountUp
@@ -117,7 +117,7 @@ const DealsStatus = () => {
                                                         prefix={'$'}
                                                         // suffix={'%'}
                                                         // separator={}
-                                                        end={item.properties.amount}
+                                                        end={item.amount}
                                                         decimals={2}
                                                         duration={4}
                                                     />
@@ -133,9 +133,9 @@ const DealsStatus = () => {
                                                     />
                                                 </span>))} */}
                                             
-                                            <span className={"fs-12 badge bg-danger-subtle text-danger"}>{item.properties.sizeofpannels}</span>
+                                            <span className={"fs-12 badge bg-danger-subtle text-danger"}>{item.sizeofpannels}</span>
                                         </div>
-                                        <p className="text-muted text-truncate mb-0">{item.properties.dealstage}</p>
+                                        <p className="text-muted text-truncate mb-0">{item.dealstage}</p>
                                     </div>
                                 </div>
                             </CardBody>
