@@ -28,7 +28,7 @@ const CreateProject = (props) => {
       amount: from.amount,
       closedate: from.closedate,
       dealname: from.dealname,
-      pipeline : "Default",
+      pipeline : "default",
       dealstage: from.dealstage,
       sizeofpannals: from.sizeofpannals,
       address : from.address
